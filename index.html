@@ -15,7 +15,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font); color: var(--ink); line-height: 1.6; background: #fbf7f1; }
-
   /* Dégradé pleine page, fixe : le contenu glisse dessus */
   body::before {
     content: ""; position: fixed; inset: 0; z-index: -2;
@@ -23,13 +22,15 @@
       #ffe3cc 0%, #ffd9e0 18%, #e3ecff 42%, #ddeaff 55%,
       #ece1ff 78%, #ffe9d6 100%);
   }
-  /* Dissolve : densité de points aléatoires qui se fondent */
+  /* Dissolve : double couche de points aléatoires qui se fondent */
   body::after {
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.35 0 0 0 0 0.15 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: .35;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.55' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0 0.10 0 0 0 0.85 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23d)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 0.72 0 0 0 0 0.55 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='90' height='90' filter='url(%23e)'/%3E%3C/svg%3E");
+    background-blend-mode: multiply;
+    opacity: .5;
   }
-
   header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.75); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(228,225,218,.8); }
   .nav { max-width: 1160px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 24px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; color: inherit; text-decoration: none; }
@@ -43,7 +44,7 @@
   body.en .fr { display: none; }
 
   .hero { text-align: center; padding: 84px 24px 96px; }
-  .hero-logo { height: 224px; width: auto; display: block; margin: 0 auto 30px; filter: drop-shadow(0 12px 24px rgba(120, 60, 10, .18)); }
+  .hero-logo { height: auto; max-height: 224px; max-width: min(420px, 80vw); width: auto; display: block; margin: 0 auto 30px; filter: drop-shadow(0 12px 24px rgba(120, 60, 10, .18)); }
   .hero h1 { font-size: clamp(2.3rem, 6vw, 3.8rem); letter-spacing: -.035em; line-height: 1.05; }
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero p { max-width: 660px; margin: 20px auto 0; font-size: 1.13rem; color: #4a4a55; }
@@ -76,7 +77,7 @@
   .c-edit .cat-label { color: var(--accent); }
   .c-story .cat-label { color: var(--accent-2); }
   .c-2d .cat-label { color: var(--accent-3); }
-  .addon-logo { height: 62px; width: auto; display: block; margin-bottom: 14px; }
+  .addon-logo { max-height: 62px; max-width: 100%; height: auto; width: auto; display: block; margin-bottom: 14px; }
   .card h3 { font-size: 1.22rem; letter-spacing: -.02em; }
   .card .tagline { color: #4a4a55; font-size: .93rem; margin: 6px 0 14px; flex: 1; }
   .badge-row { display: flex; gap: 8px; margin: 0 0 14px; flex-wrap: wrap; align-items: center; }
@@ -148,7 +149,7 @@
 <header>
   <nav class="nav">
     <a class="brand" href="#top">
-      <img src="logo_slateFlow_02.png" alt="slateFlow" style="height:30px;width:auto" onerror="this.hidden=1">
+      <img src="logo_slateFlow_02.png" alt="slateFlow" style="height:60px;width:auto" onerror="this.hidden=1">
       slateFlow
     </a>
     <div class="nav-links">
@@ -171,7 +172,7 @@
     <a class="btn btn-ghost" href="#docs"><span class="fr">Lire la documentation</span><span class="en">Read the docs</span></a>
   </div>
   <div class="hero-chips">
-    <span class="chip">Blender 5.x</span>
+    <span class="chip">Blender 5.2 LTS+</span>
     <span class="chip"><span class="fr">Open source · GPL</span><span class="en">Open source · GPL</span></span>
     <span class="chip">FR / EN</span>
     <span class="chip"><span class="fr">6 addons complémentaires</span><span class="en">6 complementary add-ons</span></span>
@@ -197,7 +198,7 @@
         <div class="badge-row">
           <span class="badge free"><span class="fr">LITE gratuit</span><span class="en">LITE free</span></span>
           <span class="badge price">PRO · 39 €</span>
-          <span class="badge req">Blender 5.0+</span>
+          <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
         <ul class="feature-list fr">
           <li>Barre d'outils contextuelle : monter sans naviguer dans les menus</li>
@@ -227,7 +228,7 @@
         <p class="tagline en">Bridge between Blender's Video Sequence Editor and DaVinci Resolve — non-destructive round-trips via OpenTimelineIO.</p>
         <div class="badge-row">
           <span class="badge price">19 €</span>
-          <span class="badge req">Blender 5.2+</span>
+          <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
         <ul class="feature-list fr">
           <li>Export du montage vers un fichier .otio prêt pour Resolve</li>
@@ -254,8 +255,8 @@
         <p class="tagline fr">Storyboard et montage réel du storyboard en même temps — le successeur de production de Storypencil.</p>
         <p class="tagline en">Storyboard and real storyboard editing at the same time — the production-grade successor to Storypencil.</p>
         <div class="badge-row">
-          <span class="badge price">38 €</span>
-          <span class="badge req">Blender 5.2 LTS <span class="fr">reco</span><span class="en">rec.</span></span>
+          <span class="badge price">39 €</span>
+          <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
         <ul class="feature-list fr">
           <li>Chaque plan = un strip vidéo relié à sa scène de dessin Grease Pencil</li>
@@ -285,7 +286,7 @@
         <p class="tagline en">Fluid drawing in Blender: a floating toolbox designed for drawing comfort.</p>
         <div class="badge-row">
           <span class="badge free"><span class="fr">Gratuit</span><span class="en">Free</span></span>
-          <span class="badge req">Blender 5.x</span>
+          <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
         <ul class="feature-list fr">
           <li>Boîte à outils flottante dans la vue 3D, tout en un clic</li>
@@ -315,7 +316,7 @@
         <p class="tagline en">A visual Dope Sheet: every Grease Pencil key displayed as an actual thumbnail of the drawing.</p>
         <div class="badge-row">
           <span class="badge price">19 €</span>
-          <span class="badge req">Blender 5.2+ · GP v3</span>
+          <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
         <ul class="feature-list fr">
           <li>Vignettes réelles alignées aux frames de la Dope Sheet</li>
@@ -345,7 +346,7 @@
         <p class="tagline en">Drawing and layer management, the 2D-animation way — depth sorting, isolation, 2D/3D toggle.</p>
         <div class="badge-row">
           <span class="badge free"><span class="fr">Gratuit</span><span class="en">Free</span></span>
-          <span class="badge req">Blender 5.0+ · GP v3</span>
+          <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
         <ul class="feature-list fr">
           <li>Liste centralisée de tous les objets Grease Pencil et de leurs layers</li>
@@ -388,17 +389,17 @@
           <h3><span class="fr">Bundle Storyboard</span><span class="en">Storyboard Bundle</span></h3>
           <p class="items">storyFlow<br>+ dopesheetFlow</p>
           <div class="price">50 €</div>
-          <span class="save"><span class="fr">−7 € vs à l'unité</span><span class="en">−€7 vs separate</span></span>
+          <span class="save"><span class="fr">−8 € vs à l.unité</span><span class="en">−€8 vs separate</span></span>
         </div>
         <div class="bundle">
           <h3><span class="fr">Suite complète</span><span class="en">Full Suite</span></h3>
           <p class="items"><span class="fr">Tous les addons payants</span><span class="en">Every paid add-on</span><br>sequencerFlow PRO · sequencerOTIO · storyFlow · dopesheetFlow<br><span class="fr">(+ gpFlow &amp; gpOutliner, gratuits)</span><span class="en">(gpFlow &amp; gpOutliner are free anyway)</span></p>
           <div class="price">80 €</div>
-          <span class="save"><span class="fr">−35 € vs à l'unité</span><span class="en">−€35 vs separate</span></span>
+          <span class="save"><span class="fr">−36 € vs à l.unité</span><span class="en">−€36 vs separate</span></span>
         </div>
       </div>
-      <p class="fr" style="margin-top:26px;font-size:.9rem">Gratuits : gpFlow, gpOutliner, sequencerFlow LITE · Payants à l'unité : sequencerFlow PRO 39 € · storyFlow 38 € · sequencerOTIO 19 € · dopesheetFlow 19 €</p>
-      <p class="en" style="margin-top:26px;font-size:.9rem">Free: gpFlow, gpOutliner, sequencerFlow LITE · Paid individually: sequencerFlow PRO €39 · storyFlow €38 · sequencerOTIO €19 · dopesheetFlow €19</p>
+      <p class="fr" style="margin-top:26px;font-size:.9rem">Gratuits : gpFlow, gpOutliner, sequencerFlow LITE · Payants à l'unité : sequencerFlow PRO 39 € · storyFlow 39 € · sequencerOTIO 19 € · dopesheetFlow 19 €</p>
+      <p class="en" style="margin-top:26px;font-size:.9rem">Free: gpFlow, gpOutliner, sequencerFlow LITE · Paid individually: sequencerFlow PRO €39 · storyFlow €39 · sequencerOTIO €19 · dopesheetFlow €19</p>
     </div>
   </div>
 </section>
@@ -427,8 +428,8 @@
         <summary><span class="fr">Prérequis</span><span class="en">Requirements</span></summary>
         <div class="doc-body">
           <ul>
-            <li class="fr">Blender 5.0 ou plus récent selon l'addon — <strong>5.2 LTS recommandé</strong> (gpOutliner et dopesheetFlow requièrent l'API Grease Pencil v3).</li>
-            <li class="en">Blender 5.0 or newer depending on the add-on — <strong>5.2 LTS recommended</strong> (gpOutliner and dopesheetFlow require the Grease Pencil v3 API).</li>
+            <li class="fr">Blender <strong>5.2 LTS ou supérieur</strong>, pour tous les addons. Tous utilisent l'API Grease Pencil v3 — pas de support des versions antérieures.</li>
+            <li class="en">Blender <strong>5.2 LTS or newer</strong>, for every add-on. All of them use the Grease Pencil v3 API — earlier versions are not supported.</li>
             <li class="fr">Windows, macOS ou Linux. Aucune dépendance externe à installer : sequencerOTIO embarque la librairie OpenTimelineIO et l'installe automatiquement au premier lancement.</li>
             <li class="en">Windows, macOS or Linux. No external dependency to install: sequencerOTIO bundles the OpenTimelineIO library and installs it automatically on first launch.</li>
           </ul>
@@ -524,7 +525,7 @@
       <details>
         <summary><span class="fr">Compatibilité &amp; combinaisons</span><span class="en">Compatibility &amp; combos</span></summary>
         <div class="doc-body">
-          <p>Blender 5.0 ou supérieur (5.2 LTS recommandé).</p>
+          <p>Blender 5.2 LTS ou supérieur · Grease Pencil v3.</p>
           <p class="combo-list"><span class="fr">Se combine avec :</span><span class="en">Combines with:</span> <a href="#doc-sequencerotio">sequencerOTIO</a>, <a href="#doc-storyflow">storyFlow</a>.</p>
         </div>
       </details>
@@ -555,7 +556,7 @@
       <details>
         <summary><span class="fr">Compatibilité &amp; combinaisons</span><span class="en">Compatibility &amp; combos</span></summary>
         <div class="doc-body">
-          <p>Blender 5.2 ou supérieur.</p>
+          <p>Blender 5.2 LTS ou supérieur · Grease Pencil v3.</p>
           <p class="combo-list"><span class="fr">Se combine avec :</span><span class="en">Combines with:</span> <a href="#doc-sequencerflow">sequencerFlow</a> <span class="fr">(les connexions de strips et vitesses sont lues automatiquement à l'export).</span><span class="en">(strip connections and speeds are read automatically at export).</span></p>
         </div>
       </details>
@@ -600,7 +601,7 @@
       <details>
         <summary><span class="fr">Compatibilité &amp; combinaisons</span><span class="en">Compatibility &amp; combos</span></summary>
         <div class="doc-body">
-          <p>Blender 5.2 LTS recommandé. Licence GPL (hérite de Storypencil, Blender Foundation).</p>
+          <p>Blender 5.2 LTS ou supérieur · Grease Pencil v3. Licence GPL (hérite de Storypencil, Blender Foundation).</p>
           <p class="combo-list"><span class="fr">Se combine avec :</span><span class="en">Combines with:</span> <a href="#doc-gpflow">gpFlow</a>, <a href="#doc-dopesheetflow">dopesheetFlow</a>, <a href="#doc-gpoutliner">gpOutliner</a>, <a href="#doc-sequencerflow">sequencerFlow</a>, <a href="#doc-sequencerotio">sequencerOTIO</a>.</p>
         </div>
       </details>
@@ -679,7 +680,7 @@
       <details>
         <summary><span class="fr">Compatibilité &amp; combinaisons</span><span class="en">Compatibility &amp; combos</span></summary>
         <div class="doc-body">
-          <p>Blender 5.2 ou supérieur (Grease Pencil v3 requis).</p>
+          <p>Blender 5.2 LTS ou supérieur · Grease Pencil v3.</p>
           <p class="combo-list"><span class="fr">Se combine avec :</span><span class="en">Combines with:</span> <a href="#doc-gpflow">gpFlow</a>, <a href="#doc-gpoutliner">gpOutliner</a>.</p>
         </div>
       </details>
@@ -724,7 +725,7 @@
       <details>
         <summary><span class="fr">Compatibilité &amp; combinaisons</span><span class="en">Compatibility &amp; combos</span></summary>
         <div class="doc-body">
-          <p>Blender 5.0 ou supérieur (API Grease Pencil v3 requise — pas de repli pour les fichiers « legacy »).</p>
+          <p>Blender 5.2 LTS ou supérieur · Grease Pencil v3 (pas de repli pour les fichiers « legacy »).</p>
           <p class="combo-list"><span class="fr">Se combine avec :</span><span class="en">Combines with:</span> <a href="#doc-gpflow">gpFlow</a>, <a href="#doc-storyflow">storyFlow</a>, <a href="#doc-dopesheetflow">dopesheetFlow</a>.</p>
         </div>
       </details>
@@ -734,7 +735,7 @@
     <div class="doc-panel" id="panel-faq">
       <details>
         <summary><span class="fr">Quels addons sont gratuits ?</span><span class="en">Which add-ons are free?</span></summary>
-        <div class="doc-body fr"><strong>gpFlow</strong>, <strong>gpOutliner</strong> et <strong>sequencerFlow LITE</strong> sont gratuits. Les versions payantes : sequencerFlow PRO (39 €), storyFlow (38 €), sequencerOTIO (19 €), dopesheetFlow (19 €). Trois bundles sont disponibles : Montage (50 €), Storyboard (50 €) et Suite complète (80 €).</div>
+        <div class="doc-body fr"><strong>gpFlow</strong>, <strong>gpOutliner</strong> et <strong>sequencerFlow LITE</strong> sont gratuits. Les versions payantes : sequencerFlow PRO (39 €), storyFlow (39 €), sequencerOTIO (19 €), dopesheetFlow (19 €). Trois bundles sont disponibles : Montage (50 €), Storyboard (50 €) et Suite complète (80 €).</div>
         <div class="doc-body en"><strong>gpFlow</strong>, <strong>gpOutliner</strong> and <strong>sequencerFlow LITE</strong> are free. Paid versions: sequencerFlow PRO (€39), storyFlow (€38), sequencerOTIO (€19), dopesheetFlow (€19). Three bundles are available: Editing (€50), Storyboard (€50) and Full Suite (€80).</div>
       </details>
       <details>
@@ -744,8 +745,8 @@
       </details>
       <details>
         <summary><span class="fr">Avec quelles versions de Blender ?</span><span class="en">Which Blender versions?</span></summary>
-        <div class="doc-body fr">Blender 5.0 minimum selon l'addon, 5.2 LTS recommandé partout. gpOutliner et dopesheetFlow requièrent l'API Grease Pencil v3 ; sequencerOTIO requiert 5.2+.</div>
-        <div class="doc-body en">Blender 5.0 minimum depending on the add-on, 5.2 LTS recommended across the board. gpOutliner and dopesheetFlow require the Grease Pencil v3 API; sequencerOTIO requires 5.2+.</div>
+        <div class="doc-body fr">Tous les addons requièrent <strong>Blender 5.2 LTS ou supérieur</strong> et l'API Grease Pencil v3. Les versions antérieures ne sont pas supportées.</div>
+        <div class="doc-body en">Every add-on requires <strong>Blender 5.2 LTS or newer</strong> and the Grease Pencil v3 API. Earlier versions are not supported.</div>
       </details>
       <details>
         <summary><span class="fr">Faut-il installer autre chose (Python, librairies) ?</span><span class="en">Do I need to install anything else (Python, libraries)?</span></summary>
