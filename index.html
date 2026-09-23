@@ -66,12 +66,15 @@
   .addon-logo { align-self: center; max-height: 93px; max-width: 100%; height: auto; width: auto; display: block; margin: 4px auto 18px; }
   .card h3 { font-size: 1.22rem; letter-spacing: -.02em; }
   .card .tagline { color: #4a4a55; font-size: .93rem; margin: 6px 0 14px; }
+  /* Bloc intro (nom + résumé + badges) à hauteur fixe : l'image démarre toujours à la même hauteur dans toutes les cartes */
+  .card .card-intro { min-height: 252px; display: flex; flex-direction: column; }
+  .card .card-intro .badge-row { margin-top: auto; margin-bottom: 0; padding-bottom: 16px; }
   .badge-row { display: flex; gap: 8px; margin: 0 0 14px; flex-wrap: wrap; align-items: center; }
   .badge { font-size: .72rem; font-weight: 800; letter-spacing: .05em; padding: 3px 10px; border-radius: 999px; }
   .badge.free { background: #ddf3e8; color: #0f6b47; }
   .badge.price { background: #1b1b22; color: #fff; }
   .badge.req { background: #f1efe9; color: var(--muted); font-weight: 700; }
-  .addon-shot { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); margin: 0 0 16px; display: block; }
+  .addon-shot { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); margin: 0 0 16px; display: block; }
   .feature-list { list-style: none; margin: 0 0 18px; }
   .feature-list li { padding-left: 22px; position: relative; margin: 6px 0; font-size: .92rem; }
   .feature-list li::before { content: "✦"; position: absolute; left: 0; font-size: .75rem; }
@@ -177,6 +180,7 @@
 
     <div class="cards">
       <article class="card c-edit" id="sequencerflow">
+        <div class="card-intro">
         <div class="cat-label"><span class="fr">Montage</span><span class="en">Editing</span></div>
         <img class="addon-logo" src="logo_sequencerFlow_02.png" alt="sequencerFlow" onerror="this.hidden=1">
         <h3>sequencerFlow</h3>
@@ -186,6 +190,7 @@
           <span class="badge free"><span class="fr">LITE gratuit</span><span class="en">LITE free</span></span>
           <span class="badge price">PRO · 39 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
+        </div>
         </div>
         <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
@@ -217,6 +222,7 @@
       </article>
 
       <article class="card c-edit" id="sequencerotio">
+        <div class="card-intro">
         <div class="cat-label"><span class="fr">Montage</span><span class="en">Editing</span></div>
         <img class="addon-logo" src="logo_sequencerOTIO_02.png" alt="sequencerOTIO" onerror="this.hidden=1">
         <h3>sequencerOTIO</h3>
@@ -225,6 +231,7 @@
         <div class="badge-row">
           <span class="badge price">19 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
+        </div>
         </div>
         <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
@@ -246,6 +253,7 @@
       </article>
 
       <article class="card c-story" id="storyflow">
+        <div class="card-intro">
         <div class="cat-label"><span class="fr">Storyboard</span><span class="en">Storyboard</span></div>
         <img class="addon-logo" src="logo_storyFlow_02.png" alt="storyFlow" onerror="this.hidden=1">
         <h3>storyFlow</h3>
@@ -254,6 +262,7 @@
         <div class="badge-row">
           <span class="badge price">39 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
+        </div>
         </div>
         <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
@@ -285,6 +294,7 @@
       </article>
 
       <article class="card c-2d" id="gpflow">
+        <div class="card-intro">
         <div class="cat-label"><span class="fr">Animation 2D</span><span class="en">2D Animation</span></div>
         <img class="addon-logo" src="logo_gpFlow_02.png" alt="gpFlow" onerror="this.hidden=1">
         <h3>gpFlow</h3>
@@ -293,6 +303,7 @@
         <div class="badge-row">
           <span class="badge free"><span class="fr">Gratuit</span><span class="en">Free</span></span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
+        </div>
         </div>
         <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
@@ -322,6 +333,7 @@
       </article>
 
       <article class="card c-2d" id="dopesheetflow">
+        <div class="card-intro">
         <div class="cat-label"><span class="fr">Animation 2D</span><span class="en">2D Animation</span></div>
         <img class="addon-logo" src="logo_dopesheetFlow_02.png" alt="dopesheetFlow" onerror="this.hidden=1">
         <h3>dopesheetFlow</h3>
@@ -330,6 +342,7 @@
         <div class="badge-row">
           <span class="badge price">19 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
+        </div>
         </div>
         <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
@@ -355,6 +368,7 @@
       </article>
 
       <article class="card c-2d" id="gpoutliner">
+        <div class="card-intro">
         <div class="cat-label"><span class="fr">Animation 2D</span><span class="en">2D Animation</span></div>
         <img class="addon-logo" src="logo_gpOutliner_02.png" alt="gpOutliner" onerror="this.hidden=1">
         <h3>gpOutliner</h3>
@@ -363,6 +377,7 @@
         <div class="badge-row">
           <span class="badge free"><span class="fr">Gratuit</span><span class="en">Free</span></span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
+        </div>
         </div>
         <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
