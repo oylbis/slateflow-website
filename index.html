@@ -31,17 +31,17 @@
 
   .hero { text-align: center; padding: 84px 24px 96px; }
   .hero-logo { align-self: center; height: auto; max-height: 224px; max-width: min(420px, 80vw); width: auto; display: block; margin: 0 auto 30px; filter: drop-shadow(0 12px 24px rgba(120, 60, 10, .18)); }
-  .hero h1 { font-size: clamp(2.3rem, 6vw, 3.8rem); letter-spacing: -.035em; line-height: 1.05; }
+  .hero h1 { font-size: clamp(1.9rem, 3.8vw, 2.6rem); letter-spacing: -.03em; line-height: 1.1; }
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero p { max-width: 660px; margin: 20px auto 0; font-size: 1.13rem; color: #4a4a55; }
   .cta-row { display: flex; gap: 14px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 999px; font-weight: 700; font-size: .98rem; text-decoration: none; transition: transform .15s; }
   .btn-primary { background: var(--ink); color: #fff; box-shadow: var(--shadow); }
   .btn-primary:hover { transform: translateY(-2px); background: #000; color: #fff; }
-  .btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); background: rgba(255,255,255,.6); }
+  .btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); background: #fff; }
   .btn-ghost:hover { background: var(--ink); color: #fff; }
   .hero-chips { display: flex; gap: 10px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
-  .chip { font-size: .82rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(228,225,218,.9); background: rgba(255,255,255,.65); color: #4a4a55; }
+  .chip { font-size: .82rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(228,225,218,.9); background: #fff; color: #4a4a55; }
 
   section { padding: 76px 24px; }
   .wrap { max-width: 1160px; margin: 0 auto; }
@@ -53,7 +53,7 @@
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
   @media (max-width: 980px) { .cards { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 660px) { .cards { grid-template-columns: 1fr; } }
-  .card { background: rgba(255,255,255,.82); backdrop-filter: blur(6px); border: 1px solid rgba(228,225,218,.9); border-radius: var(--radius); padding: 26px 26px 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform .2s; display: flex; flex-direction: column; }
+  .card { background: #fff; border: 1px solid rgba(228,225,218,.9); border-radius: var(--radius); padding: 26px 26px 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform .2s; display: flex; flex-direction: column; }
   .card:hover { transform: translateY(-5px); }
   .card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; }
   .card.c-edit::before { background: var(--accent); }
@@ -70,7 +70,8 @@
   .badge { font-size: .72rem; font-weight: 800; letter-spacing: .05em; padding: 3px 10px; border-radius: 999px; }
   .badge.free { background: #ddf3e8; color: #0f6b47; }
   .badge.price { background: #1b1b22; color: #fff; }
-  .badge.req { background: rgba(241,239,233,.9); color: var(--muted); font-weight: 700; }
+  .badge.req { background: #f1efe9; color: var(--muted); font-weight: 700; }
+  .addon-shot { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); margin: 0 0 16px; display: block; }
   .feature-list { list-style: none; margin: 0 0 18px; }
   .feature-list li { padding-left: 22px; position: relative; margin: 6px 0; font-size: .92rem; }
   .feature-list li::before { content: "✦"; position: absolute; left: 0; font-size: .75rem; }
@@ -95,9 +96,9 @@
   .suite .kicker { color: #ff9a6b; }
 
   #docs .doc-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 34px 0 22px; justify-content: center; }
-  .doc-tab { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.85); font-size: .87rem; font-weight: 700; cursor: pointer; color: var(--muted); }
+  .doc-tab { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-size: .87rem; font-weight: 700; cursor: pointer; color: var(--muted); }
   .doc-tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-  .doc-panel { display: none; background: rgba(255,255,255,.9); border: 1px solid rgba(228,225,218,.9); border-radius: var(--radius); padding: 8px 28px 20px; box-shadow: var(--shadow); }
+  .doc-panel { display: none; background: #fff; border: 1px solid rgba(228,225,218,.9); border-radius: var(--radius); padding: 8px 28px 20px; box-shadow: var(--shadow); }
   .doc-panel.active { display: block; }
   details { border-bottom: 1px solid var(--line); padding: 4px 0; }
   details summary { cursor: pointer; font-weight: 700; padding: 12px 0; list-style: none; display: flex; align-items: center; gap: 10px; }
@@ -108,7 +109,7 @@
   details .doc-body strong { color: var(--ink); }
   details .doc-body ul, details .doc-body ol { margin: 8px 0 0 20px; }
   details .doc-body li { margin: 4px 0; }
-  .doc-note { background: rgba(246,244,239,.9); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 6px; margin-top: 10px; font-size: .88rem; }
+  .doc-note { background: #f6f4ef; border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 6px; margin-top: 10px; font-size: .88rem; }
   .combo-list { margin-top: 10px; }
   .combo-list a { color: var(--accent-2); font-weight: 700; text-decoration: none; }
   .lite-pro { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
@@ -116,10 +117,10 @@
   .lite-pro h4 { font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
   .lite-pro .lite h4 { color: #0f6b47; } .lite-pro .pro h4 { color: #b34a17; }
   @media (max-width: 640px) { .lite-pro { grid-template-columns: 1fr; } }
-  code { background: rgba(241,239,233,.9); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: .85em; }
+  code { background: #f1efe9; border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: .85em; }
 
   .stores { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 40px; }
-  .store { background: rgba(255,255,255,.82); border: 1px solid rgba(228,225,218,.9); border-radius: var(--radius); padding: 28px; text-align: center; box-shadow: var(--shadow); text-decoration: none; color: var(--ink); transition: transform .2s; }
+  .store { background: #fff; border: 1px solid rgba(228,225,218,.9); border-radius: var(--radius); padding: 28px; text-align: center; box-shadow: var(--shadow); text-decoration: none; color: var(--ink); transition: transform .2s; }
   .store:hover { transform: translateY(-4px); }
   .store .icon { font-size: 1.8rem; }
   .store h3 { font-size: 1.05rem; margin: 10px 0 4px; }
@@ -150,9 +151,9 @@
 
 <div class="hero" id="top">
   <img class="hero-logo" src="logo_slateFlow_02.png" alt="slateFlow" onerror="this.hidden=1">
-  <h1><span class="fr">Le studio d'animation, directement dans <em>Blender</em></span><span class="en">The animation studio, right inside <em>Blender</em></span></h1>
-  <p class="fr">slateFlow est une suite de 6 addons qui fait de Blender un vrai atelier de production : montage vidéo aux standards pro, pont avec DaVinci Resolve, storyboarding intégré et animation 2D Grease Pencil fluide — dans le seul outil que vous maîtrisez déjà.</p>
-  <p class="en">slateFlow is a suite of 6 add-ons that turns Blender into a real production studio: pro-grade video editing, a bridge to DaVinci Resolve, integrated storyboarding and fluid Grease Pencil 2D animation — inside the one tool you already know.</p>
+  <h1><span class="fr">Storyboard et montage professionnel, directement dans <em>Blender</em></span><span class="en">Professional storyboarding and editing, right inside <em>Blender</em></span></h1>
+  <p class="fr">slateFlow est une suite de 6 addons conçue pour améliorer et fluidifier le montage, le storyboard et l'animation 2D dans Blender.</p>
+  <p class="en">slateFlow is a suite of 6 add-ons designed to improve and streamline editing, storyboarding and 2D animation in Blender.</p>
   <div class="cta-row">
     <a class="btn btn-primary" href="#suite"><span class="fr">Voir les offres</span><span class="en">See the offers</span></a>
     <a class="btn btn-ghost" href="#docs"><span class="fr">Lire la documentation</span><span class="en">Read the docs</span></a>
@@ -169,9 +170,9 @@
   <div class="wrap">
     <div class="addons-head">
       <div class="kicker"><span class="fr">Les addons</span><span class="en">The add-ons</span></div>
-      <h2><span class="fr">Six outils, une seule façon de travailler</span><span class="en">Six tools, one way of working</span></h2>
-      <p class="section-intro fr">Chaque addon résout un vrai problème de production, dans trois métiers : <strong>montage</strong>, <strong>storyboard</strong> et <strong>animation 2D</strong>. Ensemble, ils couvrent tout le parcours, du premier plan de storyboard au montage final exporté vers Resolve.</p>
-      <p class="section-intro en">Each add-on solves a real production problem, across three crafts: <strong>editing</strong>, <strong>storyboard</strong> and <strong>2D animation</strong>. Together they cover the whole journey, from the first storyboard shot to the final edit exported to Resolve.</p>
+      <h2><span class="fr">Six outils, une façon de travailler</span><span class="en">Six tools, one way of working</span></h2>
+      <p class="section-intro fr">Chaque addon facilite et fluidifie la production de trois procédés différents : <strong>montage</strong>, <strong>storyboard</strong> et <strong>animation 2D</strong>. Même s'ils peuvent être utilisés indépendament, ils couvrent ensemble tout ce pan de fabrication : du premier plan de storyboard au montage final exporté vers Resolve.</p>
+      <p class="section-intro en">Each add-on makes production easier and smoother across three different crafts: <strong>editing</strong>, <strong>storyboard</strong> and <strong>2D animation</strong>. They can be used independently, but together they cover this whole side of production, from the first storyboard shot to the final edit exported to Resolve.</p>
     </div>
 
     <div class="cards">
@@ -186,19 +187,28 @@
           <span class="badge price">PRO · 39 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
+        <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
-          <li>Barre d'outils contextuelle : monter sans naviguer dans les menus</li>
-          <li>Montage 3 points avec Source Viewer (PRO)</li>
-          <li>Guides et zones colorées pour organiser les channels</li>
-          <li>Courbes d'opacité et de volume dessinées sur les strips (PRO)</li>
-          <li>Vitesse &amp; retiming sur les strips, export et renommage par lot</li>
+          <li>Une barre d'outils contextuelle pour monter sans naviguer dans les menus et avec quelques nouvelles options propre à l'addon, pour un montage plus professionnel.</li>
+          <li>Un montage 3 points (source Viewer, in et out, insert).</li>
+          <li>Guides pour délimiter des zones de travail dans les channels, et organiser proprement son fichier de montage.</li>
+          <li>Des courbes d'opacité et de volume dessinées directement sur les strips.</li>
+          <li>Options de gestions de base du son : VU-mètre, sélection des canaux sur les strips.</li>
+          <li>Gestion de la vitesse (retiming) directement sur les strips (et compatible avec un export 100% fonctionnel vers Resolve via sequencerOTIO).</li>
+          <li>Export par lot ou au plan.</li>
+          <li>Renommage par lot ou au plan.</li>
+          <li>Système de connexion entre strips (quels qu'ils soient) amélioré, plus accessible, pour inscrire ces même connexions dans les métadatas (pré-requis pour un export 100% fonctionnel vers Resolve via sequencerOTIO).</li>
         </ul>
         <ul class="feature-list en">
-          <li>Contextual toolbar: edit without digging through menus</li>
-          <li>3-point editing with Source Viewer (PRO)</li>
-          <li>Guides &amp; colour zones to organise channels</li>
-          <li>Opacity/volume curves drawn right on strips (PRO)</li>
-          <li>On-strip speed retiming, batch export and rename</li>
+          <li>A contextual toolbar to edit without digging through menus, with a few new options of the add-on's own, for a more professional edit.</li>
+          <li>3-point editing (Source Viewer, in and out, insert).</li>
+          <li>Guides to delimit work areas in the channels, and keep your edit file cleanly organised.</li>
+          <li>Opacity and volume curves drawn directly on the strips.</li>
+          <li>Basic sound management options: VU meter, channel selection on strips.</li>
+          <li>Speed management (retiming) directly on the strips (and compatible with a 100% functional export to Resolve via sequencerOTIO).</li>
+          <li>Batch or per-shot export.</li>
+          <li>Batch or per-shot renaming.</li>
+          <li>An improved, more accessible strip connection system (between any strips), writing these connections into the metadata (a prerequisite for a 100% functional export to Resolve via sequencerOTIO).</li>
         </ul>
         <div class="card-links">
           <a href="#doc-sequencerflow"><span class="fr">Doc →</span><span class="en">Docs →</span></a>
@@ -216,17 +226,18 @@
           <span class="badge price">19 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
+        <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
-          <li>Export du montage vers un fichier .otio prêt pour Resolve</li>
-          <li>Réimport d'un .otio venant de Resolve</li>
-          <li>Mode Conform : fusionner les changements sans tout réimporter</li>
-          <li>Courbes de volume/opacité, fondus, vitesse et freeze frame préservés</li>
+          <li>Exporter le montage du VSE vers un fichier .otio prêt pour Resolve.</li>
+          <li>Réimporter un .otio venant de Resolve dans Blender.</li>
+          <li>Mode Conform : comparer et fusionner les changements faits côté Resolve, sans tout réimporter à l'aveugle.</li>
+          <li>Fonctionne avec les courbes de volume/opacité, les fondus et la vitesse.</li>
         </ul>
         <ul class="feature-list en">
-          <li>Export your edit to a Resolve-ready .otio file</li>
-          <li>Re-import a .otio coming back from Resolve</li>
-          <li>Conform mode: merge changes without blind re-import</li>
-          <li>Volume/opacity curves, fades, speed and freeze frames preserved</li>
+          <li>Export the VSE edit to a Resolve-ready .otio file.</li>
+          <li>Re-import a .otio coming from Resolve back into Blender.</li>
+          <li>Conform mode: compare and merge the changes made on the Resolve side, without blindly re-importing everything.</li>
+          <li>Works with volume/opacity curves, fades and speed.</li>
         </ul>
         <div class="card-links">
           <a href="#doc-sequencerotio"><span class="fr">Doc →</span><span class="en">Docs →</span></a>
@@ -238,25 +249,34 @@
         <div class="cat-label"><span class="fr">Storyboard</span><span class="en">Storyboard</span></div>
         <img class="addon-logo" src="logo_storyFlow_02.png" alt="storyFlow" onerror="this.hidden=1">
         <h3>storyFlow</h3>
-        <p class="tagline fr">Storyboard et montage réel du storyboard en même temps — le successeur de production de Storypencil.</p>
-        <p class="tagline en">Storyboard and real storyboard editing at the same time — the production-grade successor to Storypencil.</p>
+        <p class="tagline fr">Storyboard et montage réel du storyboard dans le même temps</p>
+        <p class="tagline en">Storyboard and real storyboard editing at the same time</p>
         <div class="badge-row">
           <span class="badge price">39 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
+        <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
-          <li>Chaque plan = un strip vidéo relié à sa scène de dessin Grease Pencil</li>
-          <li>Navigation instantanée montage ⇄ dessin (une touche)</li>
-          <li>Synchronisation automatique des durées strip ⇄ scène</li>
-          <li>Métadonnées des plans en overlay sur l'image</li>
-          <li>Renommage, rendu et création de plans par lot, garde-fous</li>
+          <li>Chaque plan = un strip vidéo relié à sa propre scène de dessin Grease Pencil.</li>
+          <li>Navigation instantanée montage &lt;&gt; dessin (une touche), ou directement entre les plans en restant dans les scènes de dessin, ou en utilisant le nouveau setup de blender avec la scène de montage accessible dans la scène de dessin.</li>
+          <li>Synchronisation propre, automatique et en temps réel des durées entre strip de dessin dans le montage et la scène de dessin associée (jamais de décalage).</li>
+          <li>Création intelligente de nouveaux plans (par paquet, peut reprendre la nomenclature d'un plan sélectionné de base, etc.)</li>
+          <li>Métadonnées des plans en overlay sur l'image (peut être imprimé sur l'image au rendu, ou non).</li>
+          <li>Informations du plan sélectionné, de sa scène de dessin, et des potentielles différences entre les deux.</li>
+          <li>Batch rename des plans (notamment par séquence).</li>
+          <li>Rendu vidéo par plan, ou rendu des images clés par plan.</li>
+          <li>Garde-fous divers à mesure que le montage se complexifie.</li>
         </ul>
         <ul class="feature-list en">
-          <li>Each shot = a video strip linked to its own Grease Pencil drawing scene</li>
-          <li>Instant edit ⇄ drawing navigation (one key)</li>
-          <li>Automatic strip ⇄ scene duration syncing</li>
-          <li>Shot metadata as an on-image overlay</li>
-          <li>Batch shot creation, rename and render, with guard-rails</li>
+          <li>Each shot = a video strip linked to its own Grease Pencil drawing scene.</li>
+          <li>Instant edit &lt;&gt; drawing navigation (one key), or directly between shots while staying in the drawing scenes, or using Blender's new setup with the edit scene accessible from the drawing scene.</li>
+          <li>Clean, automatic, real-time syncing of durations between the drawing strip in the edit and its drawing scene (never out of sync).</li>
+          <li>Smart creation of new shots (in batches, can inherit the naming of a base selected shot, etc.)</li>
+          <li>Shot metadata as an on-image overlay (can be printed on the image at render, or not).</li>
+          <li>Info about the selected shot, its drawing scene, and any differences between the two.</li>
+          <li>Batch shot rename (per sequence in particular).</li>
+          <li>Per-shot video render, or per-shot key-frame renders.</li>
+          <li>Various guard-rails as the edit grows more complex.</li>
         </ul>
         <div class="card-links">
           <a href="#doc-storyflow"><span class="fr">Doc →</span><span class="en">Docs →</span></a>
@@ -274,19 +294,26 @@
           <span class="badge free"><span class="fr">Gratuit</span><span class="en">Free</span></span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
+        <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
-          <li>Boîte à outils flottante dans la vue 3D, tout en un clic</li>
-          <li>Smart Fill : remplissage automatique des dessins à contour</li>
-          <li>Modes Lengthen/Shorten et Deform pour retoucher un trait sans le redessiner</li>
-          <li>Select &amp; transform sans clic, rotation du canva</li>
-          <li>Outils de clés de dessin rapides (clé vide, dupliquer, décaler)</li>
+          <li>Une boîte à outils flottante dans la vue 3D pour fluidifier au maximum le travail de dessin. Chaque outil est accessible en un clic ou un raccourci.</li>
+          <li>Et dans le « N » panel, par outil, se trouvent davantage d'options.</li>
+          <li>Parmi ces outils, il y a les modes classiques « dessin », « gomme », « sculpt », « select », « object », etc.</li>
+          <li>Mais il y a surtout le mode « Smart Fill » (sFill) : remplissage automatique et intelligent des dessins avec contour.</li>
+          <li>De nouveaux modes d'édition des dessins (« Lengthen/Shorten » et « Deform ») pour retravailler un trait existant sans le redessiner (allonger/raccourcir, déformer, perspective, etc.).</li>
+          <li>Un mode « select and transform » très efficace, sans clic, pour sélectionner et déplacer, tourner ou mettre à l'échelle dans la foulée.</li>
+          <li>Rotation du canva pour un meilleur confort de dessin, avec retour simple au cadrage d'origine.</li>
+          <li>Outils de clé de dessin (pour l'animation et le storyboard) rapides : clé vide, dupliquer la clé précédente, décaler une séquence.</li>
         </ul>
         <ul class="feature-list en">
-          <li>Floating toolbox in the 3D view, everything one click away</li>
-          <li>Smart Fill: automatic fill of outlined drawings</li>
-          <li>Lengthen/Shorten and Deform modes to rework a stroke without redrawing</li>
-          <li>Click-less select &amp; transform, canvas rotation</li>
-          <li>Fast drawing-key tools (blank key, duplicate, shift sequence)</li>
+          <li>A floating toolbox in the 3D view to make drawing work as fluid as possible. Every tool is one click or shortcut away.</li>
+          <li>And in the "N" panel, each tool has further options.</li>
+          <li>Among these tools are the classic "draw", "eraser", "sculpt", "select", "object" modes, etc.</li>
+          <li>But above all there is the "Smart Fill" (sFill) mode: automatic, intelligent fill of outlined drawings.</li>
+          <li>New drawing-editing modes ("Lengthen/Shorten" and "Deform") to rework an existing stroke without redrawing it (extend/shrink, deform, perspective, etc.).</li>
+          <li>A very efficient click-less "select and transform" mode to select, then move, rotate or scale on the spot.</li>
+          <li>Canvas rotation for better drawing comfort, with an easy return to the original framing.</li>
+          <li>Fast drawing-key tools (for animation and storyboarding): blank key, duplicate the previous key, shift a sequence.</li>
         </ul>
         <div class="card-links">
           <a href="#doc-gpflow"><span class="fr">Doc →</span><span class="en">Docs →</span></a>
@@ -304,19 +331,22 @@
           <span class="badge price">19 €</span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
+        <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
-          <li>Vignettes réelles alignées aux frames de la Dope Sheet</li>
-          <li>Hiérarchie Scene / Summary / groupes / layers, comme une feuille d'exposition</li>
-          <li>Déplacer une clé en mode trim ou ripple</li>
-          <li>Aperçu agrandi au survol, isolation rapide, couleurs de layers</li>
-          <li>Timeline scrub des vignettes directement dans la vue 3D</li>
+          <li>Chaque image clé Grease Pencil affichée comme une vraie vignette du dessin.</li>
+          <li>Organisation en Scene / Summary / groupes / layers, comme une vraie feuille d'exposition. Affiche une vignette pour chaque clé de chaque état de ces couches de dessin.</li>
+          <li>Déplacer une clé avec deux modes : ajuster cette image (les images qui suivent ne bougent pas), ou décaler tout ce qui suit.</li>
+          <li>Aperçu flottant agrandi au survol (alt+souris au dessus de la vignette).</li>
+          <li>Isolation rapide par rangée, couleur sur les layers pour mieux les distinguer, type de clé (breakdown/extreme, etc.) en un clic.</li>
+          <li>Visualisation et timeline scrub des vignettes du layer actif directement dans l'espace 3D.</li>
         </ul>
         <ul class="feature-list en">
-          <li>Real thumbnails aligned with the Dope Sheet frames</li>
-          <li>Scene / Summary / groups / layers hierarchy, like a true exposure sheet</li>
-          <li>Move a key in trim or ripple mode</li>
-          <li>Enlarged hover preview, quick isolation, layer colours</li>
-          <li>Thumbnail timeline scrubbing directly in the 3D view</li>
+          <li>Every Grease Pencil key displayed as a real thumbnail of the drawing.</li>
+          <li>Organised as Scene / Summary / groups / layers, like a true exposure sheet. Shows one thumbnail per key of each drawing-layer state.</li>
+          <li>Move a key in two modes: adjust just that frame (the following frames don't move), or shift everything after it.</li>
+          <li>Enlarged floating preview on hover (alt+mouse over the thumbnail).</li>
+          <li>Quick per-row isolation, colours on layers to tell them apart, key type (breakdown/extreme, etc.) in one click.</li>
+          <li>Visualisation and timeline scrubbing of the active layer's thumbnails directly in the 3D view.</li>
         </ul>
         <div class="card-links">
           <a href="#doc-dopesheetflow"><span class="fr">Doc →</span><span class="en">Docs →</span></a>
@@ -328,25 +358,30 @@
         <div class="cat-label"><span class="fr">Animation 2D</span><span class="en">2D Animation</span></div>
         <img class="addon-logo" src="logo_gpOutliner_02.png" alt="gpOutliner" onerror="this.hidden=1">
         <h3>gpOutliner</h3>
-        <p class="tagline fr">Gestion du dessin et de ses layers, comme en animation 2D — tri par profondeur, isolation, bascule 2D/3D.</p>
-        <p class="tagline en">Drawing and layer management, the 2D-animation way — depth sorting, isolation, 2D/3D toggle.</p>
+        <p class="tagline fr">Gestion du dessin et de ses layers, comme en animation 2D</p>
+        <p class="tagline en">Drawing and layer management, the 2D-animation way</p>
         <div class="badge-row">
           <span class="badge free"><span class="fr">Gratuit</span><span class="en">Free</span></span>
           <span class="badge req">Blender 5.2 LTS+ · GP v3</span>
         </div>
+        <img class="addon-shot" src="gpFlow_rotateCanva.png" alt="" onerror="this.hidden=1">
         <ul class="feature-list fr">
-          <li>Liste centralisée de tous les objets Grease Pencil et de leurs layers</li>
-          <li>Tri par profondeur réelle par rapport à la caméra</li>
-          <li>Isolation rapide avec restauration complète, opacité globale</li>
-          <li>Depth mode : parallaxe conservée en déplaçant les dessins</li>
-          <li>Bascule 2D/3D mémorielle, images de fond de caméra gérées comme des layers</li>
+          <li>Liste centralisée de tous les objets Grease Pencil de la scène, et de leurs layers.</li>
+          <li>Tri par profondeur réelle, par rapport à la caméra (le plus devant en haut de la liste), impossible nativement.</li>
+          <li>Option de passer d'un Grease Pencil à un autre sans perdre le mode dans lequel on se trouvait précédemment (mode enregistré par Grease Pencil), ou au contraire en embarquant (et en forçant) le mode dans lequel on travaillait.</li>
+          <li>Isolation rapide d'un objet ou d'un calque, restauration complète après coup.</li>
+          <li>Gestion rapide et intuitive des background image pour la caméra.</li>
+          <li>Bascule 2D/3D mémorielle pour profiter de l'espace 3D au dessin, et tout de même revenir dans un espace de dessin à plat.</li>
+          <li>Quelques outils orientés « production » pour conserver les structures des Grease Pencil (hierarchie des layers, nomenclature, etc.).</li>
         </ul>
         <ul class="feature-list en">
-          <li>Centralised list of all Grease Pencil objects and their layers</li>
-          <li>Sort by real depth relative to the camera</li>
-          <li>Quick isolation with full restore, global opacity</li>
-          <li>Depth mode: keep the parallax while moving drawings</li>
-          <li>Memorised 2D/3D toggle, camera background images handled like layers</li>
+          <li>Centralised list of every Grease Pencil object in the scene, and their layers.</li>
+          <li>Sort by real depth relative to the camera (front-most on top of the list) — impossible natively.</li>
+          <li>Switch from one Grease Pencil to another without losing the mode you were in (mode memorised per Grease Pencil), or on the contrary carrying over (and enforcing) the mode you were working in.</li>
+          <li>Quick isolation of an object or a layer, with full restore afterwards.</li>
+          <li>Fast, intuitive camera background-image management.</li>
+          <li>Memorised 2D/3D toggle to enjoy 3D space while drawing, and still return to a flat drawing space.</li>
+          <li>A few production-oriented tools to preserve Grease Pencil structures (layer hierarchy, naming, etc.).</li>
         </ul>
         <div class="card-links">
           <a href="#doc-gpoutliner"><span class="fr">Doc →</span><span class="en">Docs →</span></a>
@@ -375,13 +410,13 @@
           <h3><span class="fr">Bundle Storyboard</span><span class="en">Storyboard Bundle</span></h3>
           <p class="items">storyFlow<br>+ dopesheetFlow</p>
           <div class="price">50 €</div>
-          <span class="save"><span class="fr">−8 € vs à l.unité</span><span class="en">−€8 vs separate</span></span>
+          <span class="save"><span class="fr">−8 € vs à l'unité</span><span class="en">−€8 vs separate</span></span>
         </div>
         <div class="bundle">
           <h3><span class="fr">Suite complète</span><span class="en">Full Suite</span></h3>
           <p class="items"><span class="fr">Tous les addons payants</span><span class="en">Every paid add-on</span><br>sequencerFlow PRO · sequencerOTIO · storyFlow · dopesheetFlow<br><span class="fr">(+ gpFlow &amp; gpOutliner, gratuits)</span><span class="en">(gpFlow &amp; gpOutliner are free anyway)</span></p>
           <div class="price">80 €</div>
-          <span class="save"><span class="fr">−36 € vs à l.unité</span><span class="en">−€36 vs separate</span></span>
+          <span class="save"><span class="fr">−36 € vs à l'unité</span><span class="en">−€36 vs separate</span></span>
         </div>
       </div>
       <p class="fr" style="margin-top:26px;font-size:.9rem">Gratuits : gpFlow, gpOutliner, sequencerFlow LITE · Payants à l'unité : sequencerFlow PRO 39 € · storyFlow 39 € · sequencerOTIO 19 € · dopesheetFlow 19 €</p>
@@ -392,7 +427,7 @@
 
 <section id="docs">
   <div class="wrap">
-    <div class="kicker" style="text-align:center"><span class="fr">Sous le capot</span><span class="en">Under the hood</span></div>
+    <div class="kicker" style="text-align:center"><span class="fr">Manuels &amp; guides</span><span class="en">Manuals &amp; guides</span></div>
     <h2 style="text-align:center"><span class="fr">Documentation</span><span class="en">Documentation</span></h2>
     <p class="section-intro fr">Tout ce qu'il faut pour installer, configurer et maîtriser chaque addon. Commencez par l'installation, puis explorez chaque outil.</p>
     <p class="section-intro en">Everything you need to install, configure and master each add-on. Start with installation, then explore each tool.</p>
@@ -416,8 +451,8 @@
           <ul>
             <li class="fr">Blender <strong>5.2 LTS ou supérieur</strong>, pour tous les addons. Tous utilisent l'API Grease Pencil v3 — pas de support des versions antérieures.</li>
             <li class="en">Blender <strong>5.2 LTS or newer</strong>, for every add-on. All of them use the Grease Pencil v3 API — earlier versions are not supported.</li>
-            <li class="fr">Windows, macOS ou Linux. Aucune dépendance externe à installer : sequencerOTIO embarque la librairie OpenTimelineIO et l'installe automatiquement au premier lancement.</li>
-            <li class="en">Windows, macOS or Linux. No external dependency to install: sequencerOTIO bundles the OpenTimelineIO library and installs it automatically on first launch.</li>
+            <li class="fr">Windows, macOS ou Linux. Parfois, aucune dépendance n'est à installer, parfois si, selon l'addon (et quand c'est le cas, ça se passe dans les préférences).</li>
+            <li class="en">Windows, macOS or Linux. Sometimes there is no dependency to install, sometimes there is, depending on the add-on (and when there is, it's handled in the preferences).</li>
           </ul>
         </div>
       </details>
@@ -425,8 +460,8 @@
         <summary><span class="fr">Installation (tous les addons)</span><span class="en">Installation (all add-ons)</span></summary>
         <div class="doc-body">
           <ol>
-            <li class="fr">Téléchargez le fichier <code>.zip</code> de l'extension après achat (ou depuis la plateforme d'extensions de la Blender Foundation).</li>
-            <li class="en">Download the extension's <code>.zip</code> after purchase (or from the Blender Foundation extensions platform).</li>
+            <li class="fr">Téléchargez le fichier <code>.zip</code> de l'extension après téléchargement ou achat (ou depuis la plateforme d'extensions de la Blender Foundation).</li>
+            <li class="en">Download the extension's <code>.zip</code> after download or purchase (or from the Blender Foundation extensions platform).</li>
             <li class="fr">Dans Blender : glissez le <code>.zip</code> n'importe où dans l'interface, ou <strong>Édition → Préférences → Extensions (ou Add-ons) → menu ▾ → Installer depuis le disque…</strong></li>
             <li class="en">In Blender: drag-and-drop the <code>.zip</code> anywhere in the UI, or open <strong>Edit → Preferences → Extensions (or Add-ons) → ∨ menu → Install from Disk…</strong></li>
             <li class="fr">Sélectionnez le <code>.zip</code> téléchargé et activez l'extension.</li>
@@ -452,6 +487,35 @@
     <!-- ============ SEQUENCERFLOW ============ -->
     <div class="doc-panel" id="panel-seq">
       <details>
+        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
+        <div class="doc-body">
+          <ul class="fr">
+            <li>Une barre d'outils contextuelle pour monter sans naviguer dans les menus et avec quelques nouvelles options propre à l'addon, pour un montage plus professionnel.</li>
+            <li>Un montage 3 points (source Viewer, in et out, insert).</li>
+            <li>Guides pour délimiter des zones de travail dans les channels, et organiser proprement son fichier de montage.</li>
+            <li>Des courbes d'opacité et de volume dessinées directement sur les strips.</li>
+            <li>Options de gestions de base du son : VU-mètre, sélection des canaux sur les strips.</li>
+            <li>Gestion de la vitesse (retiming) directement sur les strips (et compatible avec un export 100% fonctionnel vers Resolve via sequencerOTIO).</li>
+            <li>Export par lot ou au plan.</li>
+            <li>Renommage par lot ou au plan.</li>
+            <li>Système de connexion entre strips (quels qu'ils soient) amélioré, plus accessible, pour inscrire ces même connexions dans les métadatas (pré-requis pour un export 100% fonctionnel vers Resolve via sequencerOTIO).</li>
+          </ul>
+          <ul class="en">
+            <li>A contextual toolbar to edit without digging through menus, with a few new options of the add-on's own, for a more professional edit.</li>
+            <li>3-point editing (Source Viewer, in and out, insert).</li>
+            <li>Guides to delimit work areas in the channels, and keep your edit file cleanly organised.</li>
+            <li>Opacity and volume curves drawn directly on the strips.</li>
+            <li>Basic sound management options: VU meter, channel selection on strips.</li>
+            <li>Speed management (retiming) directly on the strips (and compatible with a 100% functional export to Resolve via sequencerOTIO).</li>
+            <li>Batch or per-shot export.</li>
+            <li>Batch or per-shot renaming.</li>
+            <li>An improved, more accessible strip connection system (between any strips), writing these connections into the metadata (a prerequisite for a 100% functional export to Resolve via sequencerOTIO).</li>
+          </ul>
+          <p class="doc-note fr">Ensuite : le problème que l'addon résout, puis ces mêmes options reprises une par une, en détail.</p>
+          <p class="doc-note en">Next: the problem the add-on solves, then these same options revisited one by one, in detail.</p>
+        </div>
+      </details>
+      <details>
         <summary><span class="fr">Le problème sans sequencerFlow</span><span class="en">The problem without sequencerFlow</span></summary>
         <div class="doc-body fr">Le VSE natif de Blender est fonctionnel mais austère : peu de retour visuel, pas de montage 3 points intégré, aucune vue directe des courbes d'animation posées sur un strip, et l'organisation de nombreux strips devient vite confuse sans repères visuels dédiés.</div>
         <div class="doc-body en">Blender's native VSE works but is austere: little visual feedback, no built-in 3-point editing, no direct view of animation curves on a strip, and organising many strips quickly becomes confusing without dedicated visual guides.</div>
@@ -459,10 +523,34 @@
       <details>
         <summary><span class="fr">Barre d'outils contextuelle</span><span class="en">Contextual toolbar</span></summary>
         <div class="doc-body fr">
-          <p>Un montage sans naviguer dans les menus. Les outils : <strong>Cut</strong>, <strong>Join</strong> (recoudre deux strips coupés qui se succèdent), <strong>Swap</strong> left/right (intervertir deux plans en conservant la sélection), <strong>Slip</strong> (déplacer la source dans les bornes du strip), <strong>Insert</strong> (PRO), <strong>Connect/disconnect</strong> (avec écriture de métadatas pour l'export OTIO), sélections avancées (left/right/up/down/channel + selection sets), <strong>isolates</strong> (channel ou strip, réversibles), <strong>ranges</strong> (selected/all/auto) et <strong>follow playhead</strong>.</p>
+          <p>Un montage sans naviguer dans les menus. Les outils :</p>
+          <ul>
+            <li><strong>Cut</strong> — coupe classique d'un ou plusieurs strips sélectionnés par le timeline cursor</li>
+            <li><strong>Join</strong> — recoudre deux strips coupés qui se succèdent</li>
+            <li><strong>Swap</strong> left/right — intervertir deux plans en conservant la sélection</li>
+            <li><strong>Slip</strong> — déplacer la source dans les bornes du strip</li>
+            <li><strong>Insert</strong> (PRO) — insérer un strip édité dans le montage principal</li>
+            <li><strong>Connect/disconnect</strong> — avec écriture de métadatas pour l'export OTIO</li>
+            <li><strong>Sélections avancées</strong> — left/right/up/down/channel + selection sets</li>
+            <li><strong>Isolates</strong> — channel ou strip, réversibles</li>
+            <li><strong>Ranges</strong> — selected/all/auto</li>
+            <li><strong>Follow playhead</strong> — le montage suit la tête de lecture</li>
+          </ul>
         </div>
         <div class="doc-body en">
-          <p>Edit without digging through menus. Tools include: <strong>Cut</strong>, <strong>Join</strong> (stitch back two consecutive cut strips), <strong>Swap</strong> left/right (swap two shots while keeping the selection), <strong>Slip</strong> (move the source within the strip's bounds), <strong>Insert</strong> (PRO), <strong>Connect/disconnect</strong> (writes metadata for OTIO export), advanced selections (left/right/up/down/channel + selection sets), <strong>isolates</strong> (channel or strip, reversible), <strong>ranges</strong> (selected/all/auto) and <strong>follow playhead</strong>.</p>
+          <p>Edit without digging through menus. The tools:</p>
+          <ul>
+            <li><strong>Cut</strong> — classic cut of one or more selected strips at the timeline cursor</li>
+            <li><strong>Join</strong> — stitch back two consecutive cut strips</li>
+            <li><strong>Swap</strong> left/right — swap two shots while keeping the selection</li>
+            <li><strong>Slip</strong> — move the source within the strip's bounds</li>
+            <li><strong>Insert</strong> (PRO) — insert an edited strip into the main edit</li>
+            <li><strong>Connect/disconnect</strong> — writes metadata for OTIO export</li>
+            <li><strong>Advanced selections</strong> — left/right/up/down/channel + selection sets</li>
+            <li><strong>Isolates</strong> — channel or strip, reversible</li>
+            <li><strong>Ranges</strong> — selected/all/auto</li>
+            <li><strong>Follow playhead</strong> — the edit follows the playhead</li>
+          </ul>
         </div>
       </details>
       <details>
@@ -520,6 +608,25 @@
     <!-- ============ SEQUENCEROTIO ============ -->
     <div class="doc-panel" id="panel-otio">
       <details>
+        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
+        <div class="doc-body">
+          <ul class="fr">
+            <li>Exporter le montage du VSE vers un fichier .otio prêt pour Resolve.</li>
+            <li>Réimporter un .otio venant de Resolve dans Blender.</li>
+            <li>Mode Conform : comparer et fusionner les changements faits côté Resolve, sans tout réimporter à l'aveugle.</li>
+            <li>Fonctionne avec les courbes de volume/opacité, les fondus et la vitesse.</li>
+          </ul>
+          <ul class="en">
+            <li>Export the VSE edit to a Resolve-ready .otio file.</li>
+            <li>Re-import a .otio coming from Resolve back into Blender.</li>
+            <li>Conform mode: compare and merge the changes made on the Resolve side, without blindly re-importing everything.</li>
+            <li>Works with volume/opacity curves, fades and speed.</li>
+          </ul>
+          <p class="doc-note fr">Ensuite : le problème que l'addon résout, puis ces mêmes options reprises une par une, en détail.</p>
+          <p class="doc-note en">Next: the problem the add-on solves, then these same options revisited one by one, in detail.</p>
+        </div>
+      </details>
+      <details>
         <summary><span class="fr">Le problème sans sequencerOTIO</span><span class="en">The problem without sequencerOTIO</span></summary>
         <div class="doc-body fr">Blender ne couvre pas tout (mixage son avancé, étalonnage pro, export DCP…). Transférer proprement un montage Blender vers Resolve — pistes, vitesse, fondus, liens vidéo/son — demandait un travail manuel fastidieux et sujet à erreur, sans parler du retour en arrière quand Resolve modifie le montage.</div>
         <div class="doc-body en">Blender doesn't cover everything (advanced audio mixing, pro colour grading, DCP export…). Moving a Blender edit to Resolve properly — tracks, speed, fades, video/audio links — used to mean tedious, error-prone manual work, never mind going back when Resolve changes the edit.</div>
@@ -551,6 +658,35 @@
     <!-- ============ STORYFLOW ============ -->
     <div class="doc-panel" id="panel-story">
       <details>
+        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
+        <div class="doc-body">
+          <ul class="fr">
+            <li>Chaque plan = un strip vidéo relié à sa propre scène de dessin Grease Pencil.</li>
+            <li>Navigation instantanée montage &lt;&gt; dessin (une touche), ou directement entre les plans en restant dans les scènes de dessin, ou en utilisant le nouveau setup de blender avec la scène de montage accessible dans la scène de dessin.</li>
+            <li>Synchronisation propre, automatique et en temps réel des durées entre strip de dessin dans le montage et la scène de dessin associée (jamais de décalage).</li>
+            <li>Création intelligente de nouveaux plans (par paquet, peut reprendre la nomenclature d'un plan sélectionné de base, etc.)</li>
+            <li>Métadonnées des plans en overlay sur l'image (peut être imprimé sur l'image au rendu, ou non).</li>
+            <li>Informations du plan sélectionné, de sa scène de dessin, et des potentielles différences entre les deux.</li>
+            <li>Batch rename des plans (notamment par séquence).</li>
+            <li>Rendu vidéo par plan, ou rendu des images clés par plan.</li>
+            <li>Garde-fous divers à mesure que le montage se complexifie.</li>
+          </ul>
+          <ul class="en">
+            <li>Each shot = a video strip linked to its own Grease Pencil drawing scene.</li>
+            <li>Instant edit &lt;&gt; drawing navigation (one key), or directly between shots while staying in the drawing scenes, or using Blender's new setup with the edit scene accessible from the drawing scene.</li>
+            <li>Clean, automatic, real-time syncing of durations between the drawing strip in the edit and its drawing scene (never out of sync).</li>
+            <li>Smart creation of new shots (in batches, can inherit the naming of a base selected shot, etc.)</li>
+            <li>Shot metadata as an on-image overlay (can be printed on the image at render, or not).</li>
+            <li>Info about the selected shot, its drawing scene, and any differences between the two.</li>
+            <li>Batch shot rename (per sequence in particular).</li>
+            <li>Per-shot video render, or per-shot key-frame renders.</li>
+            <li>Various guard-rails as the edit grows more complex.</li>
+          </ul>
+          <p class="doc-note fr">Ensuite : le problème que l'addon résout, puis ces mêmes options reprises une par une, en détail.</p>
+          <p class="doc-note en">Next: the problem the add-on solves, then these same options revisited one by one, in detail.</p>
+        </div>
+      </details>
+      <details>
         <summary><span class="fr">Le problème sans storyFlow</span><span class="en">The problem without storyFlow</span></summary>
         <div class="doc-body fr">Storypencil, l'addon officiel dont storyFlow est issu, est puissant mais son développement est arrêté. Organiser un storyboard long sans garde-fous ni outils de production devient vite fragile — sans compter la synchronisation strip ⇄ scène de dessin, un vrai show stopper, et le setup natif de Blender qui devient illisible sur un seul écran quand le montage prend de l'ampleur.</div>
         <div class="doc-body en">Storypencil, the official add-on storyFlow derives from, is powerful but no longer developed. Organising a long storyboard without guard-rails or production tools quickly gets fragile — not to mention strip ⇄ drawing scene syncing, a real show stopper, and Blender's native setup becoming unreadable on a single screen as the edit grows.</div>
@@ -581,8 +717,22 @@
       </details>
       <details>
         <summary><span class="fr">Outils de production</span><span class="en">Production tools</span></summary>
-        <div class="doc-body fr">Ajout de plans en série depuis une sélection (nomenclature héritée et incrémentée) ou par paquet, nettoyage des scènes inutilisées, renommage par lot (notamment par séquence), rendu vidéo par plan ou rendu des images clés par plan.</div>
-        <div class="doc-body en">Add shots in series from a selection (inherited, auto-incremented naming) or in batches, clean up unused scenes, batch rename (per sequence), per-shot video render or key-frame renders.</div>
+        <div class="doc-body fr">
+          <ul>
+            <li>Ajout de plans en série depuis une sélection (nomenclature héritée et incrémentée) ou par paquet</li>
+            <li>Nettoyage des scènes inutilisées</li>
+            <li>Renommage par lot (notamment par séquence)</li>
+            <li>Rendu vidéo par plan, ou rendu des images clés par plan</li>
+          </ul>
+        </div>
+        <div class="doc-body en">
+          <ul>
+            <li>Add shots in series from a selection (inherited, auto-incremented naming) or in batches</li>
+            <li>Clean up unused scenes</li>
+            <li>Batch rename (per sequence in particular)</li>
+            <li>Per-shot video render, or per-shot key-frame renders</li>
+          </ul>
+        </div>
       </details>
       <details>
         <summary><span class="fr">Compatibilité &amp; combinaisons</span><span class="en">Compatibility &amp; combos</span></summary>
@@ -596,14 +746,55 @@
     <!-- ============ GPFLOW ============ -->
     <div class="doc-panel" id="panel-gpflow">
       <details>
+        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
+        <div class="doc-body">
+          <ul class="fr">
+            <li>Une boîte à outils flottante dans la vue 3D pour fluidifier au maximum le travail de dessin. Chaque outil est accessible en un clic ou un raccourci.</li>
+            <li>Et dans le « N » panel, par outil, se trouvent davantage d'options.</li>
+            <li>Parmi ces outils, il y a les modes classiques « dessin », « gomme », « sculpt », « select », « object », etc.</li>
+            <li>Mais il y a surtout le mode « Smart Fill » (sFill) : remplissage automatique et intelligent des dessins avec contour.</li>
+            <li>De nouveaux modes d'édition des dessins (« Lengthen/Shorten » et « Deform ») pour retravailler un trait existant sans le redessiner (allonger/raccourcir, déformer, perspective, etc.).</li>
+            <li>Un mode « select and transform » très efficace, sans clic, pour sélectionner et déplacer, tourner ou mettre à l'échelle dans la foulée.</li>
+            <li>Rotation du canva pour un meilleur confort de dessin, avec retour simple au cadrage d'origine.</li>
+            <li>Outils de clé de dessin (pour l'animation et le storyboard) rapides : clé vide, dupliquer la clé précédente, décaler une séquence.</li>
+          </ul>
+          <ul class="en">
+            <li>A floating toolbox in the 3D view to make drawing work as fluid as possible. Every tool is one click or shortcut away.</li>
+            <li>And in the "N" panel, each tool has further options.</li>
+            <li>Among these tools are the classic "draw", "eraser", "sculpt", "select", "object" modes, etc.</li>
+            <li>But above all there is the "Smart Fill" (sFill) mode: automatic, intelligent fill of outlined drawings.</li>
+            <li>New drawing-editing modes ("Lengthen/Shorten" and "Deform") to rework an existing stroke without redrawing it (extend/shrink, deform, perspective, etc.).</li>
+            <li>A very efficient click-less "select and transform" mode to select, then move, rotate or scale on the spot.</li>
+            <li>Canvas rotation for better drawing comfort, with an easy return to the original framing.</li>
+            <li>Fast drawing-key tools (for animation and storyboarding): blank key, duplicate the previous key, shift a sequence.</li>
+          </ul>
+          <p class="doc-note fr">Ensuite : le problème que l'addon résout, puis ces mêmes options reprises une par une, en détail.</p>
+          <p class="doc-note en">Next: the problem the add-on solves, then these same options revisited one by one, in detail.</p>
+        </div>
+      </details>
+      <details>
         <summary><span class="fr">Le problème sans gpFlow</span><span class="en">The problem without gpFlow</span></summary>
         <div class="doc-body fr">Rien de rédhibitoire : toutes les options existent déjà dans Blender, mais c'est fatigant à l'usage quand on veut simplement dessiner. Bascule entre modes qui demande plusieurs menus et clics, options souvent dissimulées, et remplir une zone close par un contour, à la main et pour de l'animation, est long et répétitif…</div>
         <div class="doc-body en">Nothing fatal: every option already exists in Blender, but it's tiring when you just want to draw. Switching modes takes several menus and clicks, options are often hidden away, and filling a closed outlined area by hand — for animation — is slow and repetitive…</div>
       </details>
       <details>
         <summary><span class="fr">La boîte à outils flottante</span><span class="en">The floating toolbox</span></summary>
-        <div class="doc-body fr">Une boîte à outils flottante dans la vue 3D pour fluidifier au maximum le dessin : modes dessin, gomme, remplissage, sculpt, sélection, sélection+transformation (sans clic), mode objet — chacun accessible en un clic ou un raccourci, avec davantage d'options par outil dans le « N » panel.</div>
-        <div class="doc-body en">A floating toolbox in the 3D view to make drawing as fluid as possible: draw, eraser, fill, sculpt, select, select+transform (click-less), object modes — each one click or shortcut away, with more per-tool options in the "N" panel.</div>
+        <div class="doc-body fr">
+          <p>Une boîte à outils flottante dans la vue 3D pour fluidifier au maximum le dessin :</p>
+          <ul>
+            <li><strong>Modes</strong> — dessin, gomme, remplissage, sculpt, sélection, sélection+transformation (sans clic), mode objet</li>
+            <li><strong>Accès</strong> — chacun accessible en un clic ou un raccourci</li>
+            <li><strong>Options</strong> — davantage d'options par outil dans le « N » panel</li>
+          </ul>
+        </div>
+        <div class="doc-body en">
+          <p>A floating toolbox in the 3D view to make drawing as fluid as possible:</p>
+          <ul>
+            <li><strong>Modes</strong> — draw, eraser, fill, sculpt, select, select+transform (click-less), object</li>
+            <li><strong>Access</strong> — each one click or shortcut away</li>
+            <li><strong>Options</strong> — more per-tool options in the "N" panel</li>
+          </ul>
+        </div>
       </details>
       <details>
         <summary><span class="fr">Smart Fill &amp; retravail des traits</span><span class="en">Smart Fill &amp; stroke rework</span></summary>
@@ -634,6 +825,29 @@
 
     <!-- ============ DOPESHEETFLOW ============ -->
     <div class="doc-panel" id="panel-dope">
+      <details>
+        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
+        <div class="doc-body">
+          <ul class="fr">
+            <li>Chaque image clé Grease Pencil affichée comme une vraie vignette du dessin.</li>
+            <li>Organisation en Scene / Summary / groupes / layers, comme une vraie feuille d'exposition. Affiche une vignette pour chaque clé de chaque état de ces couches de dessin.</li>
+            <li>Déplacer une clé avec deux modes : ajuster cette image (les images qui suivent ne bougent pas), ou décaler tout ce qui suit.</li>
+            <li>Aperçu flottant agrandi au survol (alt+souris au dessus de la vignette).</li>
+            <li>Isolation rapide par rangée, couleur sur les layers pour mieux les distinguer, type de clé (breakdown/extreme, etc.) en un clic.</li>
+            <li>Visualisation et timeline scrub des vignettes du layer actif directement dans l'espace 3D.</li>
+          </ul>
+          <ul class="en">
+            <li>Every Grease Pencil key displayed as a real thumbnail of the drawing.</li>
+            <li>Organised as Scene / Summary / groups / layers, like a true exposure sheet. Shows one thumbnail per key of each drawing-layer state.</li>
+            <li>Move a key in two modes: adjust just that frame (the following frames don't move), or shift everything after it.</li>
+            <li>Enlarged floating preview on hover (alt+mouse over the thumbnail).</li>
+            <li>Quick per-row isolation, colours on layers to tell them apart, key type (breakdown/extreme, etc.) in one click.</li>
+            <li>Visualisation and timeline scrubbing of the active layer's thumbnails directly in the 3D view.</li>
+          </ul>
+          <p class="doc-note fr">Ensuite : le problème que l'addon résout, puis ces mêmes options reprises une par une, en détail.</p>
+          <p class="doc-note en">Next: the problem the add-on solves, then these same options revisited one by one, in detail.</p>
+        </div>
+      </details>
       <details>
         <summary><span class="fr">Le problème sans dopesheetFlow</span><span class="en">The problem without dopesheetFlow</span></summary>
         <div class="doc-body fr">La Dope Sheet native de Blender affiche chaque image clé comme un simple losange abstrait — impossible de savoir ce qu'elle contient sans se déplacer dessus. Pour de l'animation dessinée, on perd le repère visuel qu'offre une vraie table lumineuse.</div>
@@ -674,6 +888,31 @@
 
     <!-- ============ GPOUTLINER ============ -->
     <div class="doc-panel" id="panel-gpout">
+      <details>
+        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
+        <div class="doc-body">
+          <ul class="fr">
+            <li>Liste centralisée de tous les objets Grease Pencil de la scène, et de leurs layers.</li>
+            <li>Tri par profondeur réelle, par rapport à la caméra (le plus devant en haut de la liste), impossible nativement.</li>
+            <li>Option de passer d'un Grease Pencil à un autre sans perdre le mode dans lequel on se trouvait précédemment (mode enregistré par Grease Pencil), ou au contraire en embarquant (et en forçant) le mode dans lequel on travaillait.</li>
+            <li>Isolation rapide d'un objet ou d'un calque, restauration complète après coup.</li>
+            <li>Gestion rapide et intuitive des background image pour la caméra.</li>
+            <li>Bascule 2D/3D mémorielle pour profiter de l'espace 3D au dessin, et tout de même revenir dans un espace de dessin à plat.</li>
+            <li>Quelques outils orientés « production » pour conserver les structures des Grease Pencil (hierarchie des layers, nomenclature, etc.).</li>
+          </ul>
+          <ul class="en">
+            <li>Centralised list of every Grease Pencil object in the scene, and their layers.</li>
+            <li>Sort by real depth relative to the camera (front-most on top of the list) — impossible natively.</li>
+            <li>Switch from one Grease Pencil to another without losing the mode you were in (mode memorised per Grease Pencil), or on the contrary carrying over (and enforcing) the mode you were working in.</li>
+            <li>Quick isolation of an object or a layer, with full restore afterwards.</li>
+            <li>Fast, intuitive camera background-image management.</li>
+            <li>Memorised 2D/3D toggle to enjoy 3D space while drawing, and still return to a flat drawing space.</li>
+            <li>A few production-oriented tools to preserve Grease Pencil structures (layer hierarchy, naming, etc.).</li>
+          </ul>
+          <p class="doc-note fr">Ensuite : le problème que l'addon résout, puis ces mêmes options reprises une par une, en détail.</p>
+          <p class="doc-note en">Next: the problem the add-on solves, then these same options revisited one by one, in detail.</p>
+        </div>
+      </details>
       <details>
         <summary><span class="fr">Le problème sans gpOutliner</span><span class="en">The problem without gpOutliner</span></summary>
         <div class="doc-body fr">L'outliner natif de Blender ne trie pas par profondeur relative à la caméra, il n'y a pas de vue d'ensemble dédiée aux objets Grease Pencil, et les options de gestion des dessins sont dispersées dans l'interface. Gérer beaucoup de calques et d'objets GP en parallèle devient vite confus.</div>
@@ -722,7 +961,7 @@
       <details>
         <summary><span class="fr">Quels addons sont gratuits ?</span><span class="en">Which add-ons are free?</span></summary>
         <div class="doc-body fr"><strong>gpFlow</strong>, <strong>gpOutliner</strong> et <strong>sequencerFlow LITE</strong> sont gratuits. Les versions payantes : sequencerFlow PRO (39 €), storyFlow (39 €), sequencerOTIO (19 €), dopesheetFlow (19 €). Trois bundles sont disponibles : Montage (50 €), Storyboard (50 €) et Suite complète (80 €).</div>
-        <div class="doc-body en"><strong>gpFlow</strong>, <strong>gpOutliner</strong> and <strong>sequencerFlow LITE</strong> are free. Paid versions: sequencerFlow PRO (€39), storyFlow (€38), sequencerOTIO (€19), dopesheetFlow (€19). Three bundles are available: Editing (€50), Storyboard (€50) and Full Suite (€80).</div>
+        <div class="doc-body en"><strong>gpFlow</strong>, <strong>gpOutliner</strong> and <strong>sequencerFlow LITE</strong> are free. Paid versions: sequencerFlow PRO (€39), storyFlow (€39), sequencerOTIO (€19), dopesheetFlow (€19). Three bundles are available: Editing (€50), Storyboard (€50) and Full Suite (€80).</div>
       </details>
       <details>
         <summary><span class="fr">Blender est gratuit… pourquoi payer pour un addon ?</span><span class="en">Blender is free… why pay for an add-on?</span></summary>
@@ -746,7 +985,7 @@
 <section id="download">
   <div class="wrap" style="text-align:center">
     <div class="kicker"><span class="fr">Où trouver slateFlow</span><span class="en">Where to get slateFlow</span></div>
-    <h2><span class="fr">Disponible partout où vous aimez</span><span class="en">Available wherever you prefer</span></h2>
+    <h2><span class="fr">Disponible ici</span><span class="en">Available here</span></h2>
     <p class="section-intro"><span class="fr">Liens de démonstration — remplacez-les par vos vraies pages produits.</span><span class="en">Demo links — replace them with your real product pages.</span></p>
     <div class="stores">
       <a class="store" href="https://extensions.blender.org" target="_blank" rel="noopener">
