@@ -15,22 +15,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font); color: var(--ink); line-height: 1.6; background: #fbf7f1; }
-  /* Dégradé pleine page, fixe : le contenu glisse dessus */
-  body::before {
-    content: ""; position: fixed; inset: 0; z-index: -2;
-    background: linear-gradient(165deg,
-      #ffe3cc 0%, #ffd9e0 18%, #e3ecff 42%, #ddeaff 55%,
-      #ece1ff 78%, #ffe9d6 100%);
-  }
-  /* Dissolve : double couche de points aléatoires qui se fondent */
-  body::after {
-    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.55' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0 0.10 0 0 0 0.85 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23d)'/%3E%3C/svg%3E"),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 0.72 0 0 0 0 0.55 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='90' height='90' filter='url(%23e)'/%3E%3C/svg%3E");
-    background-blend-mode: multiply;
-    opacity: .5;
-  }
+  /* Dégradé dissous : rendu pixel par pixel en JS (dissolve façon Photoshop), voir le script */
+  #bgCanvas { position: fixed; inset: 0; z-index: -2; width: 100vw; height: 100vh; }
   header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.75); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(228,225,218,.8); }
   .nav { max-width: 1160px; margin: 0 auto; padding: 6px 24px; display: flex; align-items: center; gap: 24px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; color: inherit; text-decoration: none; }
@@ -77,7 +63,7 @@
   .c-edit .cat-label { color: var(--accent); }
   .c-story .cat-label { color: var(--accent-2); }
   .c-2d .cat-label { color: var(--accent-3); }
-  .addon-logo { align-self: flex-start; max-height: 62px; max-width: 100%; height: auto; width: auto; display: block; margin-bottom: 14px; }
+  .addon-logo { align-self: center; max-height: 93px; max-width: 100%; height: auto; width: auto; display: block; margin: 4px auto 18px; }
   .card h3 { font-size: 1.22rem; letter-spacing: -.02em; }
   .card .tagline { color: #4a4a55; font-size: .93rem; margin: 6px 0 14px; flex: 1; }
   .badge-row { display: flex; gap: 8px; margin: 0 0 14px; flex-wrap: wrap; align-items: center; }
@@ -145,6 +131,7 @@
 </style>
 </head>
 <body>
+<canvas id="bgCanvas"></canvas>
 
 <header>
   <nav class="nav">
@@ -817,6 +804,54 @@
       document.getElementById("panel-" + tab.dataset.tab).classList.add("active");
     });
   });
+  // ——— Dégradé dissous (dissolve façon Photoshop) ———
+  // Le dégradé est rendu pixel par pixel : son alpha partiel est converti en
+  // trame binaire — un pixel est soit plein, soit troué. Plus le dégradé est
+  // transparent à cet endroit, plus la trame est clairsemée (fondu vers les bords).
+  (function () {
+    var c = document.getElementById("bgCanvas"), ctx = c.getContext("2d");
+    var STOPS = [
+      [0.00, 255, 227, 204], [0.18, 255, 217, 224], [0.42, 227, 236, 255],
+      [0.55, 221, 234, 255], [0.78, 236, 225, 255], [1.00, 255, 233, 214]
+    ];
+    function gradColor(t) {
+      for (var s = 0; s < STOPS.length - 1; s++) {
+        var a = STOPS[s], b = STOPS[s + 1];
+        if (t >= a[0] && t <= b[0]) {
+          var k = (t - a[0]) / (b[0] - a[0] || 1);
+          return [a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k, a[3] + (b[3] - a[3]) * k];
+        }
+      }
+      return [STOPS[0][1], STOPS[0][2], STOPS[0][3]];
+    }
+    function render() {
+      var W = c.width = window.innerWidth, H = c.height = window.innerHeight;
+      var img = ctx.createImageData(W, H), d = img.data;
+      // Axe du dégradé : 165° (comme l'ancien linear-gradient)
+      var rad = 165 * Math.PI / 180, dx = Math.abs(Math.cos(rad)), dy = Math.abs(Math.sin(rad));
+      var len = W * dx + H * dy, x0 = (W - W * dx) / 2, y0 = (H - H * dy) / 2;
+      for (var y = 0; y < H; y++) {
+        for (var x = 0; x < W; x++) {
+          var t = ((x - x0) * dx + (H - y - y0) * dy) / len;
+          // Alpha du dégradé : plein au centre, il s'efface vers les bords (vignette douce)
+          var ex = Math.max(0, Math.abs(x / W - 0.5) * 2 - 0.45) / 0.55;
+          var ey = Math.max(0, Math.abs(y / H - 0.5) * 2 - 0.45) / 0.55;
+          var edge = Math.min(1, Math.max(ex, ey));
+          var alpha = 1 - edge * edge * 0.85; // 1 au centre → 0.15 aux coins
+          // Dissolve : alpha partiel → trame binaire (pixel plein ou trou)
+          if (Math.random() < alpha) {
+            var col = gradColor(Math.max(0, Math.min(1, t)));
+            var i = (y * W + x) * 4;
+            d[i] = col[0]; d[i + 1] = col[1]; d[i + 2] = col[2]; d[i + 3] = 255;
+          }
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+    }
+    render();
+    var timer;
+    window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(render, 250); });
+  })();
 </script>
 </body>
 </html>
