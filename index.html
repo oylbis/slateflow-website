@@ -476,38 +476,9 @@
     <!-- ============ SEQUENCERFLOW ============ -->
     <div class="doc-panel" id="panel-seq">
       <details>
-        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
-        <div class="doc-body">
-          <ul class="fr">
-            <li>Une barre d'outils contextuelle pour monter sans naviguer dans les menus et avec quelques nouvelles options propre à l'addon, pour un montage plus professionnel.</li>
-            <li>Montage 3 points (éditer et insérer une source) selon deux procédés différents : soit via un second écran de prévisualisation dédié (Dual Monitor) en parallèle du montage principal, soit via un environnement dédié (bascule de scène). Ces deux configurations permettent de poser un in et un out, et d'insérer la section définie dans le montage (bouton insert).</li>
-            <li>Guides pour délimiter des zones de travail dans les channels, et organiser proprement son fichier de montage.</li>
-            <li>Des courbes d'opacité et de volume dessinées directement sur les strips.</li>
-            <li>Options de gestions de base du son : VU-mètre, sélection des canaux sur les strips.</li>
-            <li>Gestion de la vitesse (retiming) directement sur les strips (et compatible avec un export 100% fonctionnel vers Resolve via sequencerOTIO).</li>
-            <li>Export par lot ou au plan.</li>
-            <li>Renommage par lot ou au plan.</li>
-           <li>Minimap de la timeline (aperçu cliquable de tout le montage).</li>
-            <li>Système de connexion entre strips (quels qu'ils soient) amélioré, plus accessible, pour inscrire ces même connexions dans les métadatas (pré-requis pour un export 100% fonctionnel vers Resolve via sequencerOTIO).</li>
-          </ul>
-          <ul class="en">
-            <li>A contextual toolbar to edit without digging through menus, with a few new options of the add-on's own, for a more professional edit.</li>
-            <li>3-point editing (edit and insert a source) via two different methods: either through a dedicated second preview screen (Dual Monitor) alongside the main edit, or through a dedicated environment (scene switch). Both let you set an in and out point, and insert the defined section into the edit (insert button).</li>
-            <li>Guides to delimit work areas in the channels, and keep your edit file cleanly organised.</li>
-            <li>Opacity and volume curves drawn directly on the strips.</li>
-            <li>Basic sound management options: VU meter, channel selection on strips.</li>
-            <li>Speed management (retiming) directly on the strips (and compatible with a 100% functional export to Resolve via sequencerOTIO).</li>
-            <li>Batch or per-shot export.</li>
-            <li>Batch or per-shot renaming.</li>
-            <li>An improved, more accessible strip connection system (between any strips), writing these connections into the metadata (a prerequisite for a 100% functional export to Resolve via sequencerOTIO).</li>
-           <li>Timeline minimap (clickable overview of the whole edit).</li>
-          </ul>
-        </div>
-      </details>
-      <details>
         <summary><span class="fr">Le problème sans sequencerFlow</span><span class="en">The problem without sequencerFlow</span></summary>
-        <div class="doc-body fr">Le VSE natif de Blender est fonctionnel mais austère : peu de retour visuel, pas de montage 3 points intégré, aucune vue directe des courbes d'animation posées sur un strip, et l'organisation de nombreux strips devient vite confuse sans repères visuels dédiés.</div>
-        <div class="doc-body en">Blender's native VSE works but is austere: little visual feedback, no built-in 3-point editing, no direct view of animation curves on a strip, and organising many strips quickly becomes confusing without dedicated visual guides.</div>
+        <div class="doc-body fr">Le VSE natif de Blender est fonctionnel mais austère : outils dispersés à droite à gauche, peu de retour visuel, pas de montage 3 points intégré, aucune vue directe des courbes d'animation posées sur un strip, et l'organisation de nombreux strips devient vite confuse sans repères visuels dédiés.</div>
+        <div class="doc-body en">Blender's native VSE works but is austere: tools scattered left and right, little visual feedback, no built-in 3-point editing, no direct view of animation curves on a strip, and organising many strips quickly becomes confusing without dedicated visual guides.</div>
       </details>
       <details>
         <summary><span class="fr">Barre d'outils contextuelle</span><span class="en">Contextual toolbar</span></summary>
@@ -516,9 +487,9 @@
           <ul>
             <li><strong>Cut</strong> — coupe classique d'un ou plusieurs strips sélectionnés par le timeline cursor</li>
             <li><strong>Join</strong> — recoudre deux strips coupés qui se succèdent</li>
-            <li><strong>Swap</strong> left/right — intervertir deux plans en conservant la sélection</li>
+            <li><strong>Swap</strong> left/right — intervertir deux plans vers la gauche ou vers la droite, en conservant la sélection</li>
             <li><strong>Slip</strong> — déplacer la source dans les bornes du strip</li>
-            <li><strong>Insert</strong> (PRO) — insérer un strip édité dans le montage principal</li>
+            <li><strong>Insert</strong> (PRO) — insérer dans le montage principal une source éditée (in et out) à part</li>
             <li><strong>Connect/disconnect</strong> — avec écriture de métadatas pour l'export OTIO</li>
             <li><strong>Sélections avancées</strong> — left/right/up/down/channel + selection sets</li>
             <li><strong>Isolates</strong> — channel ou strip, réversibles</li>
@@ -532,9 +503,9 @@
           <ul>
             <li><strong>Cut</strong> — classic cut of one or more selected strips at the timeline cursor</li>
             <li><strong>Join</strong> — stitch back two consecutive cut strips</li>
-            <li><strong>Swap</strong> left/right — swap two shots while keeping the selection</li>
+            <li><strong>Swap</strong> left/right — swap two shots to the left or to the right, keeping the selection</li>
             <li><strong>Slip</strong> — move the source within the strip's bounds</li>
-            <li><strong>Insert</strong> (PRO) — insert an edited strip into the main edit</li>
+            <li><strong>Insert</strong> (PRO) — insert a separately edited (in and out) source into the main edit</li>
             <li><strong>Connect/disconnect</strong> — writes metadata for OTIO export</li>
             <li><strong>Advanced selections</strong> — left/right/up/down/channel + selection sets</li>
             <li><strong>Isolates</strong> — channel or strip, reversible</li>
@@ -546,15 +517,15 @@
       </details>
       <details>
         <summary><span class="fr">Source Viewer &amp; montage 3 points (PRO)</span><span class="en">Source Viewer &amp; 3-point editing (PRO)</span></summary>
-        <div class="doc-body fr">Une fenêtre de prévisualisation dédiée pour charger un média, poser un point d'entrée et de sortie, puis l'insérer dans le montage avec décalage automatique de tout ce qui suit — exactement comme dans un logiciel de montage professionnel. Un second écran de prévisualisation indépendant (Dual Monitor, basé sur le Movie Clip Editor) peut aussi être activé pour un vrai monitoring à deux écrans, avec son propre historique de médias et ses propres points IN/OUT, partagés avec le Source Viewer. Un aperçu comparatif des médias (fps, résolution, durée, profil couleur) est aussi disponible directement dans le File Browser, pour comparer plusieurs fichiers avant de les charger.</div>
-        <div class="doc-body en">A dedicated preview window to load a media, set in/out points, then insert it into the edit with automatic ripple of everything after — exactly like in a professional NLE. An independent second preview screen (Dual Monitor, based on the Movie Clip Editor) can also be enabled for true two-screen monitoring, with its own media history and its own IN/OUT points, shared with the Source Viewer. A comparative media preview (fps, resolution, duration, colour profile) is also available directly in the File Browser, to compare several files before loading them.</div>
+        <div class="doc-body fr">Montage 3 points (éditer et insérer une source) selon deux procédés différents : soit via un second écran de prévisualisation dédié (Dual Monitor) en parallèle du montage principal, soit via un environnement dédié (bascule de scène). Ces deux configurations permettent de poser un in et un out, et d'insérer la section définie dans le montage (bouton insert). Quel que soit le mode d'édition de la source choisi, le in et le out sont conservés. Un aperçu comparatif des médias (fps, résolution, durée, profil couleur) est aussi disponible directement dans le File Browser, pour comparer plusieurs fichiers avant de les charger.</div>
+        <div class="doc-body en">3-point editing (edit and insert a source) via two different methods: either through a dedicated second preview screen (Dual Monitor) alongside the main edit, or through a dedicated environment (scene switch). Both let you set an in and an out point, and insert the defined section into the edit (insert button). Whichever source-editing mode you choose, the in and out points are kept. A comparative media preview (fps, resolution, duration, colour profile) is also available directly in the File Browser, to compare several files before loading them.</div>
       </details>
       <details>
         <summary><span class="fr">Courbes, zones, audio &amp; vitesse (PRO)</span><span class="en">Curves, zones, audio &amp; speed (PRO)</span></summary>
         <div class="doc-body fr">
           <ul>
             <li><strong>Courbes sur les strips</strong> : opacité et volume dessinés directement sur le strip (ctrl+clic pour ajouter une clé), sans ouvrir le Graph Editor.</li>
-            <li><strong>Zones colorées</strong> : guides délimitant des zones de travail dans les channels (vidéo, son, effets), avec presets et renommage dans le N-panel.</li>
+            <li><strong>Zones colorées</strong> : guides délimitant des zones de travail entre les channels (possibilité de créer des catégories pour distinguer vidéo, son, effets, etc.), avec presets et renommage dans le N-panel. Possibilité de déplacer ces guides intuitivement dans le VSE.</li>
             <li><strong>Audio avancé</strong> : VU-mètre temps réel, badges de canal audio sur les strips, réattribution mono/stéréo en un clic.</li>
             <li><strong>Vitesse &amp; retiming</strong> : badge de vitesse sur le strip, freeze frame, export de la vitesse vers Resolve via sequencerOTIO.</li>
             <li><strong>Export &amp; renommage</strong> : export par strip ou par lot, renommage en lot ou au plan.</li>
@@ -563,7 +534,7 @@
         <div class="doc-body en">
           <ul>
             <li><strong>Curves on strips</strong>: opacity and volume drawn right on the strip (ctrl+click to add a key), no Graph Editor needed.</li>
-            <li><strong>Colour zones</strong>: guides delimiting work areas in the channels (video, sound, effects), with presets and renaming in the N-panel.</li>
+            <li><strong>Colour zones</strong>: guides delimiting work areas between the channels (with categories to tell video, sound, effects, etc. apart), with presets and renaming in the N-panel. The guides can be moved around intuitively in the VSE.</li>
             <li><strong>Advanced audio</strong>: real-time VU meter, audio channel badges on strips, one-click mono/stereo reassignment.</li>
             <li><strong>Speed &amp; retiming</strong>: speed badge on the strip, freeze frame, speed export to Resolve via sequencerOTIO.</li>
             <li><strong>Export &amp; renaming</strong>: per-strip or batch export, batch or single-shot renaming.</li>
@@ -603,26 +574,9 @@
     <!-- ============ SEQUENCEROTIO ============ -->
     <div class="doc-panel" id="panel-otio">
       <details>
-        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
-        <div class="doc-body">
-          <ul class="fr">
-            <li>Exporter le montage du VSE vers un fichier .otio prêt pour Resolve.</li>
-            <li>Réimporter un .otio venant de Resolve dans Blender.</li>
-            <li>Mode Conform : comparer et fusionner les changements faits côté Resolve, sans tout réimporter à l'aveugle.</li>
-            <li>Fonctionne avec les courbes de volume/opacité, les fondus et la vitesse.</li>
-          </ul>
-          <ul class="en">
-            <li>Export the VSE edit to a Resolve-ready .otio file.</li>
-            <li>Re-import a .otio coming from Resolve back into Blender.</li>
-            <li>Conform mode: compare and merge the changes made on the Resolve side, without blindly re-importing everything.</li>
-            <li>Works with volume/opacity curves, fades and speed.</li>
-          </ul>
-        </div>
-      </details>
-      <details>
         <summary><span class="fr">Le problème sans sequencerOTIO</span><span class="en">The problem without sequencerOTIO</span></summary>
-        <div class="doc-body fr">Blender ne couvre pas tout (mixage son avancé, étalonnage pro, export DCP…). Transférer proprement un montage Blender vers Resolve — pistes, vitesse, fondus, liens vidéo/son — demandait un travail manuel fastidieux et sujet à erreur, sans parler du retour en arrière quand Resolve modifie le montage.</div>
-        <div class="doc-body en">Blender doesn't cover everything (advanced audio mixing, pro colour grading, DCP export…). Moving a Blender edit to Resolve properly — tracks, speed, fades, video/audio links — used to mean tedious, error-prone manual work, never mind going back when Resolve changes the edit.</div>
+        <div class="doc-body fr">Blender ne couvre pas tout (mixage son avancé, étalonnage professionnel, export DCP, etc.). Jusqu'ici, transférer proprement un montage Blender vers Resolve (pistes, vitesse, fondus, liens vidéo/son) demandait un travail manuel fastidieux et sujet à erreur — sans parler du retour en arrière si Resolve modifie le montage…</div>
+        <div class="doc-body en">Blender doesn't cover everything (advanced audio mixing, professional colour grading, DCP export, etc.). Until now, moving a Blender edit to Resolve properly (tracks, speed, fades, video/audio links) meant tedious, error-prone manual work — never mind going back if Resolve changes the edit…</div>
       </details>
       <details>
         <summary><span class="fr">Export optimisé pour Resolve</span><span class="en">Resolve-optimised export</span></summary>
@@ -655,36 +609,9 @@
     <!-- ============ STORYFLOW ============ -->
     <div class="doc-panel" id="panel-story">
       <details>
-        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
-        <div class="doc-body">
-          <ul class="fr">
-            <li>Chaque plan = un strip vidéo relié à sa propre scène de dessin Grease Pencil.</li>
-            <li>Navigation instantanée montage &lt;&gt; dessin (une touche), ou directement entre les plans en restant dans les scènes de dessin, ou en utilisant le nouveau setup de blender avec la scène de montage accessible dans la scène de dessin.</li>
-            <li>Synchronisation propre, automatique et en temps réel des durées entre strip de dessin dans le montage et la scène de dessin associée (jamais de décalage).</li>
-            <li>Création intelligente de nouveaux plans (par paquet, peut reprendre la nomenclature d'un plan sélectionné de base, etc.)</li>
-            <li>Métadonnées des plans en overlay sur l'image (peut être imprimé sur l'image au rendu, ou non).</li>
-            <li>Informations du plan sélectionné, de sa scène de dessin, et des potentielles différences entre les deux.</li>
-            <li>Batch rename des plans (notamment par séquence).</li>
-            <li>Rendu vidéo par plan, ou rendu des images clés par plan.</li>
-            <li>Garde-fous divers à mesure que le montage se complexifie.</li>
-          </ul>
-          <ul class="en">
-            <li>Each shot = a video strip linked to its own Grease Pencil drawing scene.</li>
-            <li>Instant edit &lt;&gt; drawing navigation (one key), or directly between shots while staying in the drawing scenes, or using Blender's new setup with the edit scene accessible from the drawing scene.</li>
-            <li>Clean, automatic, real-time syncing of durations between the drawing strip in the edit and its drawing scene (never out of sync).</li>
-            <li>Smart creation of new shots (in batches, can inherit the naming of a base selected shot, etc.)</li>
-            <li>Shot metadata as an on-image overlay (can be printed on the image at render, or not).</li>
-            <li>Info about the selected shot, its drawing scene, and any differences between the two.</li>
-            <li>Batch shot rename (per sequence in particular).</li>
-            <li>Per-shot video render, or per-shot key-frame renders.</li>
-            <li>Various guard-rails as the edit grows more complex.</li>
-          </ul>
-        </div>
-      </details>
-      <details>
         <summary><span class="fr">Le problème sans storyFlow</span><span class="en">The problem without storyFlow</span></summary>
-        <div class="doc-body fr">Storypencil, l'addon officiel dont storyFlow est issu, est puissant mais son développement est arrêté. Organiser un storyboard long sans garde-fous ni outils de production devient vite fragile — sans compter la synchronisation strip ⇄ scène de dessin, un vrai show stopper, et le setup natif de Blender qui devient illisible sur un seul écran quand le montage prend de l'ampleur.</div>
-        <div class="doc-body en">Storypencil, the official add-on storyFlow derives from, is powerful but no longer developed. Organising a long storyboard without guard-rails or production tools quickly gets fragile — not to mention strip ⇄ drawing scene syncing, a real show stopper, and Blender's native setup becoming unreadable on a single screen as the edit grows.</div>
+        <div class="doc-body fr">Storypencil, l'addon officiel et historique dont storyFlow est issu, est puissant mais son développement est arrêté. Organiser un storyboard long sans garde-fous ni outils de production devient vite fragile — sans compter la synchronisation strip ⇄ scène de dessin dysfonctionnelle, un vrai show stopper, et le setup natif de Blender qui devient illisible sur un seul écran quand le montage prend de l'ampleur.</div>
+        <div class="doc-body en">Storypencil, the historic official add-on storyFlow derives from, is powerful but no longer developed. Organising a long storyboard without guard-rails or production tools quickly gets fragile — not to mention the broken strip ⇄ drawing scene syncing, a real show stopper, and Blender's native setup becoming unreadable on a single screen as the edit grows.</div>
       </details>
       <details>
         <summary><span class="fr">Setup de session &amp; navigation instantanée</span><span class="en">Session setup &amp; instant navigation</span></summary>
@@ -695,18 +622,16 @@
         <summary><span class="fr">Synchronisation, overlays &amp; garde-fous</span><span class="en">Syncing, overlays &amp; guard-rails</span></summary>
         <div class="doc-body fr">
           <ul>
-            <li><strong>Synchronisation automatique des durées</strong> : changer la durée d'un plan dans le montage ou dans la scène met l'autre à jour. Rogner ou repousser les plans voisins, allonger d'une valeur précise via double-clic sur une poignée.</li>
-            <li><strong>Avertissement de scènes partagées</strong> : un repère visuel signale deux plans pointant par erreur vers la même scène.</li>
+            <li><strong>Synchronisation automatique des durées</strong> : changer la durée d'un plan dans le montage ou dans la scène met l'autre à jour. Rogner (en tirant une poignée) ou repousser (en faisant ctrl + tirer une poignée) les plans voisins, allonger ou raccourcir d'une valeur précise via double-clic sur une poignée.</li>
             <li><strong>Datas overlay</strong> : nom du plan, numéros de frame, durée, in/out — affichés sur l'image, imprimables au rendu.</li>
-            <li><strong>Statut de synchronisation</strong> en temps réel dans le montage quand un plan est sélectionné.</li>
+            <li><strong>Statut de synchronisation</strong> (entre strip et scène de dessin associée) en temps réel dans le montage, quand un plan est sélectionné.</li>
           </ul>
         </div>
         <div class="doc-body en">
           <ul>
-            <li><strong>Automatic duration syncing</strong>: changing a shot's duration in the edit or the scene updates the other. Trim or push neighbouring shots, extend by an exact value via handle double-click.</li>
-            <li><strong>Shared-scene warning</strong>: a visual cue flags two shots mistakenly pointing to the same scene.</li>
+            <li><strong>Automatic duration syncing</strong>: changing a shot's duration in the edit or the scene updates the other. Trim (by dragging a handle) or push (ctrl + drag a handle) neighbouring shots, lengthen or shorten by an exact value via handle double-click.</li>
             <li><strong>Data overlay</strong>: shot name, frame numbers, duration, in/out — displayed on the image, printable at render.</li>
-            <li><strong>Real-time sync status</strong> in the edit when a shot is selected.</li>
+            <li><strong>Real-time sync status</strong> (between the strip and its drawing scene) in the edit when a shot is selected.</li>
           </ul>
         </div>
       </details>
@@ -715,17 +640,17 @@
         <div class="doc-body fr">
           <ul>
             <li>Ajout de plans en série depuis une sélection (nomenclature héritée et incrémentée) ou par paquet</li>
-            <li>Nettoyage des scènes inutilisées</li>
+            <li>Garde-fous divers : nettoyage des scènes inutilisées, nettoyage des noms pour que strips et scènes de dessin soient toujours raccord, avertissement de scènes partagées (erreur indiquée visuellement sur les strips)</li>
             <li>Renommage par lot (notamment par séquence)</li>
-            <li>Rendu vidéo par plan, ou rendu des images clés par plan</li>
+            <li>Rendu vidéo par plan, ou rendu image des images clés par plan</li>
           </ul>
         </div>
         <div class="doc-body en">
           <ul>
             <li>Add shots in series from a selection (inherited, auto-incremented naming) or in batches</li>
-            <li>Clean up unused scenes</li>
+            <li>Various guard-rails: clean up unused scenes, name cleanup so strips and drawing scenes always match, shared-scene warning (the error is flagged visually on the strips)</li>
             <li>Batch rename (per sequence in particular)</li>
-            <li>Per-shot video render, or per-shot key-frame renders</li>
+            <li>Per-shot video render, or image render of the key frames per shot</li>
           </ul>
         </div>
       </details>
@@ -745,34 +670,9 @@
     <!-- ============ GPFLOW ============ -->
     <div class="doc-panel" id="panel-gpflow">
       <details>
-        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
-        <div class="doc-body">
-          <ul class="fr">
-            <li>Une boîte à outils flottante dans la vue 3D pour fluidifier au maximum le travail de dessin. Chaque outil est accessible en un clic ou un raccourci.</li>
-            <li>Et dans le « N » panel, par outil, se trouvent davantage d'options.</li>
-            <li>Parmi ces outils, il y a les modes classiques « dessin », « gomme », « sculpt », « select », « object », etc.</li>
-            <li>Mais il y a surtout le mode « Smart Fill » (sFill) : remplissage automatique et intelligent des dessins avec contour pour une animation.</li>
-            <li>De nouveaux modes d'édition des dessins (« Lengthen/Shorten » et « Deform ») pour retravailler un trait existant sans le redessiner (allonger/raccourcir, déformer, perspective, etc.).</li>
-            <li>Un mode « select and transform » très efficace, sans clic, pour sélectionner et déplacer, tourner ou mettre à l'échelle dans la foulée.</li>
-            <li>Rotation du canva pour un meilleur confort de dessin, avec retour simple au cadrage d'origine.</li>
-            <li>Outils de clé de dessin (pour l'animation et le storyboard) rapides : clé vide, dupliquer la clé précédente, décaler une séquence.</li>
-          </ul>
-          <ul class="en">
-            <li>A floating toolbox in the 3D view to make drawing work as fluid as possible. Every tool is one click or shortcut away.</li>
-            <li>And in the "N" panel, each tool has further options.</li>
-            <li>Among these tools are the classic "draw", "eraser", "sculpt", "select", "object" modes, etc.</li>
-            <li>But above all there is the "Smart Fill" (sFill) mode: automatic, intelligent fill of outlined drawings for animation.</li>
-            <li>New drawing-editing modes ("Lengthen/Shorten" and "Deform") to rework an existing stroke without redrawing it (extend/shrink, deform, perspective, etc.).</li>
-            <li>A very efficient click-less "select and transform" mode to select, then move, rotate or scale on the spot.</li>
-            <li>Canvas rotation for better drawing comfort, with an easy return to the original framing.</li>
-            <li>Fast drawing-key tools (for animation and storyboarding): blank key, duplicate the previous key, shift a sequence.</li>
-          </ul>
-        </div>
-      </details>
-      <details>
         <summary><span class="fr">Le problème sans gpFlow</span><span class="en">The problem without gpFlow</span></summary>
-        <div class="doc-body fr">Rien de rédhibitoire : toutes les options existent déjà dans Blender, mais c'est fatigant à l'usage quand on veut simplement dessiner. Bascule entre modes qui demande plusieurs menus et clics, options souvent dissimulées, et remplir une zone close par un contour, à la main et pour de l'animation, est long et répétitif…</div>
-        <div class="doc-body en">Nothing fatal: every option already exists in Blender, but it's tiring when you just want to draw. Switching modes takes several menus and clicks, options are often hidden away, and filling a closed outlined area by hand — for animation — is slow and repetitive…</div>
+        <div class="doc-body fr">Rien de rédhibitoire : globalement, les options existent déjà dans Blender, mais elles peuvent être fatiguantes à l'usage, quand on veut simplement dessiner. Bascule entre modes qui demande plusieurs menus et clics, options souvent dissimulées et dispersées, etc. Et remplir une zone close par un contour, à la main et pour de l'animation, peut être long et répétitif…</div>
+        <div class="doc-body en">Nothing fatal: on the whole, the options already exist in Blender, but they can be tiring to use when you just want to draw. Switching modes takes several menus and clicks, options are often hidden away and scattered, etc. And filling a closed outlined area by hand — for animation — can be slow and repetitive…</div>
       </details>
       <details>
         <summary><span class="fr">La boîte à outils flottante</span><span class="en">The floating toolbox</span></summary>
@@ -794,21 +694,23 @@
         </div>
       </details>
       <details>
-        <summary><span class="fr">Smart Fill &amp; retravail des traits</span><span class="en">Smart Fill &amp; stroke rework</span></summary>
+        <summary><span class="fr">Fill, Smart Fill &amp; retravail des traits</span><span class="en">Fill, Smart Fill &amp; stroke rework</span></summary>
         <div class="doc-body fr">
           <ul>
-            <li><strong>Smart Fill (sFill)</strong> : deux façons de remplir un dessin fermé par un contour — le remplissage rapide « Fill » de la toolbar (clic pour remplir, Alt+clic pour supprimer un remplissage sous le curseur), ou le mode « From Hint » qui remplit automatiquement tout un dessin à partir de quelques indices de couleur posés à la volée sur un calque dédié — sur l'image courante, ou en lot sur toute une plage d'animation (« All Frames »/« Selected Frames »). Trous dans le trait détectés et gérés automatiquement dans les deux cas.</li>
+            <li><strong>Fill et Smart Fill (sFill)</strong> : deux façons de remplir un dessin fermé par un contour — le remplissage rapide « Fill » de la toolbar (clic pour remplir, Alt+clic pour supprimer un remplissage sous le curseur), ou le mode « From Hint » qui remplit automatiquement tout un dessin à partir de quelques indices de couleur posés à la volée sur un calque dédié — sur l'image courante, ou en lot sur toute une plage d'animation (« All Frames »/« Selected Frames »). Trous dans le trait détectés et gérés automatiquement dans les deux cas.</li>
             <li><strong>Lengthen/Shorten</strong> : prolonger ou raccourcir un trait en tirant son extrémité.</li>
-            <li><strong>Deform</strong> : déformer un trait existant (déplacement, perspective…) sans le redessiner.</li>
+            <li><strong>Deform</strong> : déformer un trait existant (cage de déformation multipoint, perspective…) sans le redessiner.</li>
+            <li><strong>Flip</strong> : retournement horizontal ou vertical d'un dessin ou d'une sélection du dessin. Compatible avec le multiframe de Blender, pour l'animation.</li>
             <li><strong>Rotation du canva</strong> pour un meilleur confort, avec retour simple au cadrage d'origine.</li>
             <li><strong>Clés de dessin rapides</strong> : clé vide, dupliquer la clé précédente, décaler une séquence.</li>
           </ul>
         </div>
         <div class="doc-body en">
           <ul>
-            <li><strong>Smart Fill (sFill)</strong>: two ways to fill a drawing closed by an outline — the quick "Fill" from the toolbar (click to fill, Alt+click to remove a fill under the cursor), or the "From Hint" mode which automatically fills a whole drawing from a few colour hints dropped on the fly on a dedicated layer — on the current frame, or in batch over a whole animation range ("All Frames"/"Selected Frames"). Gaps in the stroke are detected and handled automatically in both cases.</li>
+            <li><strong>Fill and Smart Fill (sFill)</strong>: two ways to fill a drawing closed by an outline — the quick "Fill" from the toolbar (click to fill, Alt+click to remove a fill under the cursor), or the "From Hint" mode which automatically fills a whole drawing from a few colour hints dropped on the fly on a dedicated layer — on the current frame, or in batch over a whole animation range ("All Frames"/"Selected Frames"). Gaps in the stroke are detected and handled automatically in both cases.</li>
             <li><strong>Lengthen/Shorten</strong>: extend or shrink a stroke by pulling its end.</li>
-            <li><strong>Deform</strong>: deform an existing stroke (move, perspective…) without redrawing it.</li>
+            <li><strong>Deform</strong>: deform an existing stroke (multipoint deform cage, perspective…) without redrawing it.</li>
+            <li><strong>Flip</strong>: flip a drawing or a selection of it horizontally or vertically. Compatible with Blender's multiframe, for animation.</li>
             <li><strong>Canvas rotation</strong> for comfort, with easy return to the original framing.</li>
             <li><strong>Fast drawing keys</strong>: blank key, duplicate previous key, shift a sequence.</li>
           </ul>
@@ -827,27 +729,6 @@
     <!-- ============ DOPESHEETFLOW ============ -->
     <div class="doc-panel" id="panel-dope">
       <details>
-        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
-        <div class="doc-body">
-          <ul class="fr">
-            <li>Chaque image clé Grease Pencil affichée comme une vraie vignette du dessin.</li>
-            <li>Organisation en Scene / Summary / groupes / layers, comme une vraie feuille d'exposition. Affiche une vignette pour chaque clé de chaque état de ces couches de dessin.</li>
-            <li>Déplacer une clé avec deux modes : ajuster cette image (les images qui suivent ne bougent pas), ou décaler tout ce qui suit.</li>
-            <li>Aperçu flottant agrandi au survol (alt+souris au dessus de la vignette).</li>
-            <li>Isolation rapide par rangée, couleur sur les layers pour mieux les distinguer, type de clé (breakdown/extreme, etc.) en un clic.</li>
-            <li>Visualisation et timeline scrub des vignettes du layer actif directement dans l'espace 3D.</li>
-          </ul>
-          <ul class="en">
-            <li>Every Grease Pencil key displayed as a real thumbnail of the drawing.</li>
-            <li>Organised as Scene / Summary / groups / layers, like a true exposure sheet. Shows one thumbnail per key of each drawing-layer state.</li>
-            <li>Move a key in two modes: adjust just that frame (the following frames don't move), or shift everything after it.</li>
-            <li>Enlarged floating preview on hover (alt+mouse over the thumbnail).</li>
-            <li>Quick per-row isolation, colours on layers to tell them apart, key type (breakdown/extreme, etc.) in one click.</li>
-            <li>Visualisation and timeline scrubbing of the active layer's thumbnails directly in the 3D view.</li>
-          </ul>
-        </div>
-      </details>
-      <details>
         <summary><span class="fr">Le problème sans dopesheetFlow</span><span class="en">The problem without dopesheetFlow</span></summary>
         <div class="doc-body fr">La Dope Sheet native de Blender affiche chaque image clé comme un simple losange abstrait — impossible de savoir ce qu'elle contient sans se déplacer dessus. Pour de l'animation dessinée, on perd le repère visuel qu'offre une vraie table lumineuse.</div>
         <div class="doc-body en">Blender's native Dope Sheet shows each key as an abstract diamond — you can't tell what it contains without scrubbing to it. For drawn animation, you lose the visual reference a real light table gives you.</div>
@@ -863,7 +744,7 @@
           <ul>
             <li><strong>Deux modes de déplacement</strong> : trim (seule la clé bouge, clic+drag) ou ripple (tout ce qui suit décalé, ctrl+clic+drag).</li>
             <li><strong>Double-clic</strong> sur une vignette : aller à la clé et au layer correspondants.</li>
-            <li><strong>Isolation rapide</strong> par rangée (cumulable), couleur des layers, type de clé (breakdown, extreme…) en un clic droit sur la pastille.</li>
+            <li><strong>Isolation rapide</strong> par calque (cumulable), couleur par layers, type de clé (breakdown, extreme…) en un clic droit sur la pastille sur la vignette.</li>
             <li><strong>Scrubbing dans la vue 3D</strong> : glisser directement sur le dessin pour naviguer entre les clés voisines, changement de layer aisé.</li>
           </ul>
         </div>
@@ -871,7 +752,7 @@
           <ul>
             <li><strong>Two move modes</strong>: trim (only the key moves, click+drag) or ripple (everything after shifts, ctrl+click+drag).</li>
             <li><strong>Double-click</strong> a thumbnail to jump to that key and layer.</li>
-            <li><strong>Quick isolation</strong> per row (stackable), layer colours, key type (breakdown, extreme…) via right-click on the dot.</li>
+            <li><strong>Quick isolation</strong> per layer (stackable), per-layer colours, key type (breakdown, extreme…) via right-click on the dot on the thumbnail.</li>
             <li><strong>3D-view scrubbing</strong>: drag directly on the drawing to browse neighbouring keys, easy layer switching.</li>
           </ul>
         </div>
@@ -892,57 +773,44 @@
     <!-- ============ GPOUTLINER ============ -->
     <div class="doc-panel" id="panel-gpout">
       <details>
-        <summary><span class="fr">Résumé</span><span class="en">Summary</span></summary>
-        <div class="doc-body">
-          <ul class="fr">
-            <li>Liste centralisée de tous les objets Grease Pencil de la scène, et de leurs layers.</li>
-            <li>Tri par profondeur réelle, par rapport à la caméra (le plus devant en haut de la liste), impossible nativement.</li>
-            <li>Option de passer d'un Grease Pencil à un autre sans perdre le mode dans lequel on se trouvait précédemment (mode enregistré par Grease Pencil), ou au contraire en embarquant (et en forçant) le mode dans lequel on travaillait.</li>
-            <li>Isolation rapide d'un objet ou d'un calque, restauration complète après coup.</li>
-            <li>Gestion rapide et intuitive des background image pour la caméra.</li>
-            <li>Bascule 2D/3D mémorielle pour profiter de l'espace 3D au dessin, et tout de même revenir dans un espace de dessin à plat.</li>
-            <li>Quelques outils orientés « production » pour conserver les structures des Grease Pencil (hierarchie des layers, nomenclature, etc.).</li>
-          </ul>
-          <ul class="en">
-            <li>Centralised list of every Grease Pencil object in the scene, and their layers.</li>
-            <li>Sort by real depth relative to the camera (front-most on top of the list) — impossible natively.</li>
-            <li>Switch from one Grease Pencil to another without losing the mode you were in (mode memorised per Grease Pencil), or on the contrary carrying over (and enforcing) the mode you were working in.</li>
-            <li>Quick isolation of an object or a layer, with full restore afterwards.</li>
-            <li>Fast, intuitive camera background-image management.</li>
-            <li>2D/3D toggle in a few clicks: draw a set from a 3D point of view (position the camera at any angle you like), then align the camera and the drawing onto the canonical 2D axis in one click — a transformation algorithm that exactly preserves the original framing, reversible via a "Back to 3D" button that restores the previous position.</li>
-            <li>A few production-oriented tools to preserve Grease Pencil structures at creation time (layer hierarchy, naming, etc.).</li>
-            <li>A few complementary options for managing Grease Pencil objects and the strokes they contain.</li>
-          </ul>
-        </div>
-      </details>
-      <details>
         <summary><span class="fr">Le problème sans gpOutliner</span><span class="en">The problem without gpOutliner</span></summary>
-        <div class="doc-body fr">L'outliner natif de Blender ne trie pas par profondeur relative à la caméra, il n'y a pas de vue d'ensemble dédiée aux objets Grease Pencil, et les options de gestion des dessins sont dispersées dans l'interface. Gérer beaucoup de calques et d'objets GP en parallèle devient vite confus.</div>
-        <div class="doc-body en">Blender's native outliner doesn't sort by camera-relative depth, there is no overview dedicated to Grease Pencil objects, and drawing management options are scattered across the UI. Handling many GP layers and objects in parallel quickly gets confusing.</div>
+        <div class="doc-body fr">L'outliner natif de Blender ne trie pas par profondeur relative à la caméra, il n'y a pas de vue d'ensemble dédiée aux objets Grease Pencil, et les options de gestion des dessins et de leurs layers sont dispersées dans l'interface. Gérer beaucoup de calques et d'objets GP en parallèle devient vite confus.</div>
+        <div class="doc-body en">Blender's native outliner doesn't sort by camera-relative depth, there is no overview dedicated to Grease Pencil objects, and drawing and layer management options are scattered across the UI. Handling many GP layers and objects in parallel quickly gets confusing.</div>
       </details>
       <details>
         <summary><span class="fr">Liste triable par profondeur &amp; Depth mode</span><span class="en">Depth-sorted list &amp; Depth mode</span></summary>
-        <div class="doc-body fr">Chaque objet Grease Pencil est listé avec un slider pour ajuster sa distance à la caméra, avec retour interactif de sa position relative aux autres. Tri par profondeur ou alphabétique, caméras ajoutables à la liste. En <strong>Depth mode</strong>, l'échelle s'ajuste automatiquement pour garder la taille apparente constante — déplacez les dessins en conservant la parallaxe.</div>
-        <div class="doc-body en">Each Grease Pencil object is listed with a slider to adjust its distance to the camera, with live feedback of its position relative to the others. Sort by depth or alphabetically, cameras can be added to the list. In <strong>Depth mode</strong>, scale auto-adjusts to keep apparent size constant — move drawings while keeping the parallax.</div>
+        <div class="doc-body fr">Chaque objet Grease Pencil est listé avec un slider pour ajuster sa distance à la caméra, avec renvoi visuel interactif de sa position relative aux autres. Tri par profondeur ou alphabétique, caméras qui peuvent s'ajouter à la liste. En <strong>Depth mode</strong>, l'échelle du grease pencil éloigné ou rapproché s'ajuste automatiquement pour garder la taille apparente constante (pratique pour poser une parallaxe).</div>
+        <div class="doc-body en">Each Grease Pencil object is listed with a slider to adjust its distance to the camera, with live visual feedback of its position relative to the others. Sort by depth or alphabetically, cameras can be added to the list. In <strong>Depth mode</strong>, the scale of far and near Grease Pencil objects auto-adjusts to keep apparent size constant (handy for setting up parallax).</div>
       </details>
       <details>
-        <summary><span class="fr">Edit mode, isolation, opacité &amp; 2D/3D</span><span class="en">Edit mode, isolation, opacity &amp; 2D/3D</span></summary>
+        <summary><span class="fr">Edit mode, isolation, opacité</span><span class="en">Edit mode, isolation, opacity</span></summary>
         <div class="doc-body fr">
           <ul>
-            <li><strong>Keep current / Remember last</strong> : conserver son mode en cours en passant d'un Grease Pencil à l'autre, ou rappeler le mode mémorisé de chacun.</li>
-            <li><strong>Isolation</strong> d'un objet ou d'un calque en un bouton, avec restauration complète à la désactivation ; opacité globale d'un objet en préservant les proportions entre calques.</li>
-            <li><strong>Bascule 2D/3D</strong> en quelques clics : dessiner un décor depuis un point de vue 3D (positionner la caméra selon l'angle de votre choix), puis aligner en un clic la caméra et le dessin sur l'axe 2D canonique — un algorithme de transformation qui préserve exactement le cadrage d'origine, réversible via un bouton « Back to 3D » qui restaure la position précédente.</li>
-            <li><strong>Contextes de dessin (Boards)</strong> : regrouper plusieurs Grease Pencil sous une même caméra de référence dédiée (un « board »), pour organiser plusieurs plans ou setups 2D/3D différents dans une même scène. La bascule 2D/3D et sa restauration s'appliquent alors à tout le board d'un coup, sans sélection manuelle.</li>
+            <li><strong>Edit Mode : Keep current / Remember last</strong> : conserver son mode d'édition d'un grease pencil quand on passe d'un dessin à l'autre, ou rappeler le mode de chacun des dessins (car mémorisé au préalable).</li>
+            <li><strong>Isolation</strong> d'un objet ou d'un calque en un bouton, avec restauration complète à la désactivation ; régler l'opacité globale d'un objet Grease Pencil, tout en préservant les proportions d'opacité entre ses calques.</li>
             <li><strong>Images de fond de caméra</strong> ajoutées, réordonnées et réglées comme des layers depuis le même panneau.</li>
           </ul>
         </div>
         <div class="doc-body en">
           <ul>
-            <li><strong>Keep current / Remember last</strong>: keep your current mode when switching Grease Pencil objects, or recall each object's memorised mode.</li>
-            <li><strong>Isolation</strong> of an object or layer with one button, full restore on deactivation; global object opacity preserving inter-layer ratios.</li>
-            <li><strong>2D/3D toggle</strong> in a few clicks: draw a set from a 3D point of view (position the camera at any angle you like), then align the camera and the drawing onto the canonical 2D axis in one click — a transformation algorithm that exactly preserves the original framing, reversible via a "Back to 3D" button that restores the previous position.</li>
-            <li><strong>Drawing contexts (Boards)</strong>: group several Grease Pencil objects under a single dedicated reference camera (a "board"), to organise several shots or different 2D/3D setups within one scene. The 2D/3D toggle and its restore then apply to the whole board at once, with no manual selection.</li>
+            <li><strong>Edit Mode: Keep current / Remember last</strong>: keep a Grease Pencil's edit mode as you move from one drawing to the next, or recall each drawing's (previously memorised) mode.</li>
+            <li><strong>Isolation</strong> of an object or layer with one button, full restore on deactivation; set a Grease Pencil object's global opacity while preserving the opacity ratios between its layers.</li>
             <li><strong>Camera background images</strong> added, reordered and adjusted like layers from the same panel.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span class="fr">Bascule 2D/3D</span><span class="en">2D/3D toggle</span></summary>
+        <div class="doc-body fr">
+          <ul>
+            <li><strong>Bascule 2D/3D</strong> en quelques clics : dessiner un décor depuis un point de vue 3D (positionner la caméra selon l'angle de votre choix), puis aligner en un clic la caméra et le dessin sur l'axe 2D canonique — un algorithme de transformation qui préserve exactement le cadrage d'origine, réversible via un bouton « Back to 3D » qui restaure la position en 3D.</li>
+            <li><strong>Contextes de dessin (Boards)</strong> : regrouper plusieurs Grease Pencil sous une même caméra de référence dédiée (un « board »), pour organiser plusieurs plans ou setups 2D/3D différents dans une même scène. La bascule 2D/3D et sa restauration s'appliquent alors à tout le board d'un coup, sans sélection manuelle.</li>
+          </ul>
+        </div>
+        <div class="doc-body en">
+          <ul>
+            <li><strong>2D/3D toggle</strong> in a few clicks: draw a set from a 3D point of view (position the camera at any angle you like), then align the camera and the drawing onto the canonical 2D axis in one click — a transformation algorithm that exactly preserves the original framing, reversible via a "Back to 3D" button that restores the 3D position.</li>
+            <li><strong>Drawing contexts (Boards)</strong>: group several Grease Pencil objects under a single dedicated reference camera (a "board"), to organise several shots or different 2D/3D setups within one scene. The 2D/3D toggle and its restore then apply to the whole board at once, with no manual selection.</li>
           </ul>
         </div>
       </details>
